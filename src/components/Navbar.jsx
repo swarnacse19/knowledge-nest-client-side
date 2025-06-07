@@ -21,7 +21,7 @@ function Navbar() {
       </div>
 
       <div className="hidden lg:flex items-center gap-6">
-        <ul className="menu menu-horizontal px-1 gap-5 text-lg font-medium">
+        <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium">
           {links}
         </ul>
         <Link to="/login" className="btn bg-purple-600 text-white">
