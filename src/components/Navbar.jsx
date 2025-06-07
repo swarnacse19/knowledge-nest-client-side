@@ -14,7 +14,7 @@ function Navbar() {
   );
 
   return (
-    <div className="navbar bg-base-100 px-8 py-2 shadow-md flex justify-between items-center">
+    <div className="navbar bg-base-100 px-12 py-4 shadow-md flex justify-between items-center">
       <div className="flex items-center gap-2">
         <GiSpellBook size={40} color='indigo'/>
         <h2 className="hidden md:flex text-2xl font-semibold text-purple-900">KnowledgeNest</h2>
