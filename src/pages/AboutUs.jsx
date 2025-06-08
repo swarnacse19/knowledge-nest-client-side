@@ -1,54 +1,38 @@
 import React from 'react';
+import { FaRegCommentDots } from 'react-icons/fa';
+import { FaMobileScreen } from 'react-icons/fa6';
+import { MdLibraryBooks } from 'react-icons/md';
+import { SiGnuprivacyguard } from 'react-icons/si';
+import { TbWorld } from 'react-icons/tb';
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-800 px-6 py-12 md:px-20">
+    <div className="max-w-11/12 mx-auto rounded-2xl bg-purple-100 text-black px-6 py-12 md:px-20 my-5">
       <div className="space-y-10">
 
         <section>
-          <h2 className="text-3xl font-semibold mb-2 text-indigo-600 text-center">Welcome to KnowledgeNest!</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-3xl font-semibold mb-4 text-center">Welcome to KnowledgeNest!</h2>
+          <p className="text-[16px] text-gray-600">
             KnowledgeNest is a student-driven platform where learning meets collaboration. Here, students can freely share their thoughts, write informative articles, and engage in meaningful discussions with peers. We believe that everyone has something valuable to contribute.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">Our Mission</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="text-2xl font-semibold mb-2">Our Mission</h2>
+          <p className="text-[16px] text-gray-600">
             To build a supportive, secure, and engaging community where students can express ideas, learn from each other, and grow together through knowledge sharing.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">What We Offer</h2>
-          <ul className="list-disc list-inside text-lg space-y-2">
-            <li>📚 Article Posting – Share your ideas, research, or reflections.</li>
-            <li>💬 Commenting – Engage in thoughtful discussions.</li>
-            <li>🔐 Private Dashboard – Manage your own content easily.</li>
-            <li>🌐 Browse All Articles – Discover what others are sharing.</li>
-            <li>📱 Fully Responsive – Use it anywhere, on any device.</li>
+          <h2 className="text-2xl font-semibold mb-2">What We Offer</h2>
+          <ul className=" text-gray-600 text-[16px] space-y-2">
+            <li className='flex gap-2 items-center'><MdLibraryBooks color='indigo' size={24}/> Article Posting - Share your ideas, research, or reflections.</li>
+            <li className='flex gap-2 items-center'><FaRegCommentDots color='indigo' size={24}/> Commenting - Engage in thoughtful discussions.</li>
+            <li className='flex gap-2 items-center'><SiGnuprivacyguard color='indigo' size={24}/> Private Dashboard - Manage your own content easily.</li>
+            <li className='flex gap-2 items-center'><TbWorld color='indigo' size={24}/> Browse All Articles - Discover what others are sharing.</li>
+            <li className='flex gap-2 items-center'><FaMobileScreen color='indigo' size={24}/> Fully Responsive - Use it anywhere, on any device.</li>
           </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">Who It's For</h2>
-          <p className="text-lg leading-relaxed">
-            This platform is for college and university students who want to express themselves, share what they know, and learn from others in a safe, respectful space.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">Why “KnowledgeNest”?</h2>
-          <p className="text-lg leading-relaxed">
-            Just like a nest nurtures young birds, KnowledgeNest nurtures ideas. It's a safe and warm place where your thoughts can grow, evolve, and take flight.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-2 text-indigo-600">Get Involved</h2>
-          <p className="text-lg leading-relaxed">
-            Ready to share your thoughts? Join our community today. Let your voice be heard and be a part of a growing network of learners and thinkers.
-          </p>
         </section>
       </div>
     </div>
