@@ -12,7 +12,7 @@ function Register() {
           <Lottie
             animationData={animationData}
             loop={true}
-            style={{ width: 300, height: 300 }}
+            style={{ width: 400, height: 400 }}
           ></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
