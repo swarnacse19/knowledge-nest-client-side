@@ -11,7 +11,7 @@ function Register() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const { createUser, setUser, updateUser, } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleRegister = (e) =>{
     e.preventDefault();
@@ -126,16 +126,16 @@ function Register() {
               <button
                 type="button"
                 className="btn bg-white border-black"
-                // onClick={() => {
-                //   signInWithGoogle()
-                //     .then((result) => {
-                //       toast.success("Signed in with Google successfully!");
-                //       setTimeout(() => navigate("/"), 3000);
-                //     })
-                //     .catch((error) => {
-                //       setError(error.message);
-                //     });
-                // }}
+                onClick={() => {
+                  signInWithGoogle()
+                    .then((result) => {
+                      toast.success("Sign up with Google successfully!");
+                      setTimeout(() => navigate("/"), 3000);
+                    })
+                    .catch((error) => {
+                      setError(error.message);
+                    });
+                }}
               >
                 <FcGoogle size={25} />
                 Sign up with Google
