@@ -1,10 +1,37 @@
 import Lottie from 'lottie-react';
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import animationData from "./Login.json";
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from '../provider/AuthProvider';
+import { toast, ToastContainer } from 'react-toastify';
 
 function Login() {
+  const [error, setError] = useState("");
+  const emailRef = useRef();
+  const { signIn, resetPassword, signInWithGoogle } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+    .then(result =>{
+      toast.success("Login successful!");
+        setTimeout(
+          () => navigate(`${location.state ? location.state : "/"}`),
+          3000
+        );
+    })
+    .catch(error =>{
+      setError(error.message);
+    })
+  }
+
   return (
     <div className="hero bg-base-200 my-5 min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -20,12 +47,12 @@ function Login() {
             <h2 className="text-2xl font-bold text-center text-black mb-5">
               Login Here
             </h2>
-            <form >
+            <form onSubmit={handleLogin}>
               <label className="label">Email</label>
               <input
                 type="email"
                 name="email"
-                //ref={emailRef}
+                ref={emailRef}
                 className="input mb-5"
                 placeholder="Email"
               />
@@ -42,7 +69,7 @@ function Login() {
                 </a>
               </div>
 
-              {/* {error && <p className="text-red-600 text-xs">{error}</p>} */}
+              {error && <p className="text-red-600 text-xs">{error}</p>}
 
               <button
                 type="submit"
@@ -58,20 +85,20 @@ function Login() {
               <button
                 type="button"
                 className="btn bg-white w-full text-black border-black hover:bg-gray-300"
-                // onClick={() => {
-                //   signInWithGoogle()
-                //     .then((result) => {
-                //       toast.success("Signed in with Google!");
-                //       setTimeout(
-                //         () =>
-                //           navigate(`${location.state ? location.state : "/"}`),
-                //         3000
-                //       );
-                //     })
-                //     .catch((error) => {
-                //       setError(error.message);
-                //     });
-                // }}
+                onClick={() => {
+                  signInWithGoogle()
+                    .then((result) => {
+                      toast.success("Signed in with Google!");
+                      setTimeout(
+                        () =>
+                          navigate(`${location.state ? location.state : "/"}`),
+                        3000
+                      );
+                    })
+                    .catch((error) => {
+                      setError(error.message);
+                    });
+                }}
               >
                 <FcGoogle size={25} />
                 Login with Google
@@ -86,6 +113,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 }
