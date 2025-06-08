@@ -3,7 +3,7 @@ import React from 'react';
 function Banner() {
   return (
     <div
-      className="hero h-[520px] rounded-2xl"
+      className="hero h-[520px]"
       style={{
         backgroundImage: "url('https://i.ibb.co/HL0qXW75/reading.jpg')",
         backgroundSize: 'cover',

@@ -32,6 +32,26 @@ function Login() {
     })
   }
 
+  const handleForgetPassword = () => {
+    const email = emailRef.current.value;
+
+    if (!email) {
+      setError("Please enter your email address first!");
+      return;
+    }
+
+    setError("");
+    resetPassword(email)
+      .then(() => {
+        toast.warning(
+          "A password reset email is sent. Please check your inbox."
+        );
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="hero bg-base-200 my-5 min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -63,7 +83,7 @@ function Login() {
                 className="input mb-5"
                 placeholder="Password"
               />
-              <div >
+              <div onClick={handleForgetPassword}>
                 <a className="link link-hover text-neutral-400 font-semibold">
                   Forgot password?
                 </a>

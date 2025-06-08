@@ -7,7 +7,7 @@ function Root() {
   return (
     <div>
       <div><Navbar></Navbar></div>
-      <div className='max-w-11/12 mx-auto min-h-screen'><Outlet></Outlet></div>
+      <div className='min-h-screen'><Outlet></Outlet></div>
       <Footer></Footer>
     </div>
   );
