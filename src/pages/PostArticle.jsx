@@ -1,6 +1,13 @@
 import React, { use, useRef, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import JoditEditor from "jodit-react";
+import Swal from "sweetalert2";
+
+const stripHtmlTags = (html) => {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return div.textContent || div.innerText || "";
+};
 
 function PostArticle() {
   const { user } = use(AuthContext);
@@ -15,11 +22,36 @@ function PostArticle() {
     const newArticle = Object.fromEntries(formData.entries());
 
     newArticle.author_name = user.displayName;
-    newArticle.author_email = user.email;
+    newArticle.author_id = user.uid;
     newArticle.author_photo = user.photoURL;
-    newArticle.content = content;
+    newArticle.content = stripHtmlTags(content);
+
+    newArticle.tags = newArticle.tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
 
     console.log(newArticle);
+
+    fetch("http://localhost:5000/articles", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newArticle),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Article posted successfully!",
+            icon: "success",
+            draggable: true,
+          });
+
+          //   form.reset()
+        }
+      });
   };
   return (
     <div className="max-w-3xl mx-auto p-6 bg-base-200 rounded-2xl shadow-xl my-10 text-black">
@@ -49,7 +81,11 @@ function PostArticle() {
 
         <div className="form-control">
           <label className="label font-semibold">Tags (comma separated)</label>
-          <input type="text" name="tags" className="input input-bordered w-full" />
+          <input
+            type="text"
+            name="tags"
+            className="input input-bordered w-full"
+          />
         </div>
 
         <div className="form-control">
@@ -114,3 +150,5 @@ function PostArticle() {
 }
 
 export default PostArticle;
+
+
