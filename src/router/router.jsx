@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import AboutUs from "../pages/AboutUs";
 import PostArticle from "../pages/PostArticle";
+import PrivateRoute from "../provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/postArticle",
-        Component: PostArticle
+        element: (
+          <PrivateRoute>
+            <PostArticle></PostArticle>
+          </PrivateRoute>
+        )
       },
       {
         path: "/about",
