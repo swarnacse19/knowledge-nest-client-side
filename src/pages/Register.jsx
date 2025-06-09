@@ -38,7 +38,7 @@ function Register() {
       setError("");
     }
 
-    console.log(email, name, password, photo);
+    //console.log(email, name, password, photo);
 
     createUser(email, password)
     .then(result =>{

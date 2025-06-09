@@ -21,6 +21,7 @@ function Login() {
 
     signIn(email, password)
     .then(result =>{
+      //console.log(result.user);
       toast.success("Login successful!");
         setTimeout(
           () => navigate(`${location.state ? location.state : "/"}`),
