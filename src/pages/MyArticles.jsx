@@ -79,36 +79,36 @@ function MyArticles() {
   };
 
   const handleDelete = (id) => {
-    // Swal.fire({
-    //   title: "Are you sure?",
-    //   text: "You won't be able to revert this!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "Yes, delete it!",
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     fetch(
-    //       `https://assignment-10-server-side-blue.vercel.app/groups/${id}`,
-    //       {
-    //         method: "DELETE",
-    //       }
-    //     )
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         if (data.deletedCount) {
-    //           Swal.fire({
-    //             title: "Deleted!",
-    //             text: "Your post has been deleted.",
-    //             icon: "success",
-    //           });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(
+          `http://localhost:5000/articles/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your post has been deleted.",
+                icon: "success",
+              });
 
-    //           setMyArticle(myArticle.filter((g) => g._id !== id));
-    //         }
-    //       });
-    //   }
-    // });
+              setMyArticle(myArticle.filter((g) => g._id !== id));
+            }
+          });
+      }
+    });
   };
 
 
