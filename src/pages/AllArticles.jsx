@@ -9,31 +9,38 @@ const AllArticles = () => {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Load categories on mount
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await fetch("http://localhost:5000/categories");
-      const data = await res.json();
-      setCategories(data);
+      try {
+        const res = await fetch("http://localhost:5000/categories");
+        const data = await res.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
     };
     fetchCategories();
   }, []);
 
-  // Filtered articles fetch
   useEffect(() => {
     const fetchFilteredArticles = async () => {
       setLoading(true);
       let url = "http://localhost:5000/articles";
-      if (category) {
-        url += `?category=${category}`;
-      }
 
       try {
         const res = await fetch(url);
         const data = await res.json();
-        setArticles(data);
+
+        if (category) {
+          const filteredData = data.filter(
+            (article) => article.category === category
+          );
+          setArticles(filteredData);
+        } else {
+          setArticles(data);
+        }
       } catch (error) {
-        console.error("Error fetching filtered articles:", error);
+        console.error("Error fetching articles:", error);
       } finally {
         setLoading(false);
       }
@@ -43,27 +50,41 @@ const AllArticles = () => {
   }, [category]);
 
   return (
-    <div>
-      <h2>All Articles</h2>
-
-      <label>
+    <div className="max-w-11/12 mx-auto my-7">
+      <label className="font-semibold">
         Filter by Category:
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select
+          className="border font-normal ml-3"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="">All</option>
           {categories.map((cat, idx) => (
-            <option key={idx} value={cat}>{cat}</option>
+            <option key={idx} value={cat}>
+              {cat}
+            </option>
           ))}
         </select>
       </label>
 
       {loading ? (
-        <><Loading></Loading></>
+        <Loading />
       ) : (
-        <ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           {articles.map((article) => (
-            <li key={article._id}>{article.title}</li>
+            <div key={article._id} className="card border w-96">
+              <div className="card-body">
+                <h2 className="card-title">{article.title}</h2>
+                <p className="text-sm text-gray-600">
+                By {article.author_name} <br /> {new Date(article.date).toLocaleDateString()}
+              </p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Read More</button>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
