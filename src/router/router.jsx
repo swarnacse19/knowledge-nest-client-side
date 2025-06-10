@@ -9,6 +9,7 @@ import PostArticle from "../pages/PostArticle";
 import PrivateRoute from "../provider/PrivateRoute";
 import AllArticles from "../pages/AllArticles";
 import Loading from "../pages/Loading";
+import MyArticles from "../pages/MyArticles";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,15 @@ const router = createBrowserRouter([
           fetch("http://localhost:5000/articles"),
         HydrateFallback: Loading,
         Component: AllArticles
+      },
+      {
+        path: "/myArticles",
+        loader: () => 
+          fetch("http://localhost:5000/articles"),
+        HydrateFallback: Loading,
+        element: <PrivateRoute>
+          <MyArticles></MyArticles>
+        </PrivateRoute>
       },
       {
         path: "/postArticle",
