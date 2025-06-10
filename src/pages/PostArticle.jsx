@@ -3,11 +3,11 @@ import { AuthContext } from "../provider/AuthProvider";
 import JoditEditor from "jodit-react";
 import Swal from "sweetalert2";
 
-const stripHtmlTags = (html) => {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  return div.textContent || div.innerText || "";
-};
+// const stripHtmlTags = (html) => {
+//   const div = document.createElement("div");
+//   div.innerHTML = html;
+//   return div.textContent || div.innerText || "";
+// };
 
 function PostArticle() {
   const { user } = use(AuthContext);
@@ -24,7 +24,7 @@ function PostArticle() {
     newArticle.author_name = user.displayName;
     newArticle.author_id = user.uid;
     newArticle.author_photo = user.photoURL;
-    newArticle.content = stripHtmlTags(content);
+    newArticle.content = content;
 
     newArticle.tags = newArticle.tags
       .split(",")

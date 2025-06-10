@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLoaderData } from "react-router";
-//import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import JoditEditor from "jodit-react";
 import MyData from "../components/MyData";
 
@@ -27,10 +27,11 @@ function MyArticles() {
     }
   }, [articles, userId]);
 
-  console.log(myArticle);
+  //console.log(myArticle);
 
   const openModal = (article) => {
     setSelectedArticle(article);
+    setContent(article.content);
     setIsModalOpen(true);
   };
 
@@ -44,30 +45,37 @@ function MyArticles() {
     const form = e.target;
     const formData = new FormData(form);
     const newData = Object.fromEntries(formData.entries());
+    newData.content = content;
 
-    // fetch(`https://assignment-10-server-side-blue.vercel.app/groups/${id}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.modifiedCount) {
-    //       Swal.fire({
-    //         title: "Post Updated successfully!",
-    //         icon: "success",
-    //       });
-    //       const updatedArticle = { ...selectedArticle, ...newData };
-    //       updatedArticle._id = id;
+    console.log(newData);
+    newData.tags = newData.tags
+    .split(",")
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0);
 
-    //       setMyArticle((prev) =>
-    //         prev.map((g) => (g._id === id ? updatedArticle : g))
-    //       );
-    //       closeModal();
-    //     }
-    //   });
+    fetch(`http://localhost:5000/articles/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Post Updated successfully!",
+            icon: "success",
+          });
+          const updatedArticle = { ...selectedArticle, ...newData };
+          updatedArticle._id = id;
+
+          setMyArticle((prev) =>
+            prev.map((g) => (g._id === id ? updatedArticle : g))
+          );
+          closeModal();
+        }
+      });
   };
 
   const handleDelete = (id) => {
@@ -185,6 +193,7 @@ function MyArticles() {
                 <input
                   type="text"
                   name="tags"
+                  defaultValue={selectedArticle.tags}
                   className="input input-bordered w-full"
                 />
               </div>
@@ -218,7 +227,6 @@ function MyArticles() {
                 <JoditEditor
                   ref={editor}
                   value={content}
-                  defaultValue={selectedArticle.content}
                   tabIndex={1}
                   onBlur={(newContent) => setContent(newContent)}
                 />

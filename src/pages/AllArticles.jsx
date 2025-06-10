@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 
@@ -79,7 +79,7 @@ const AllArticles = () => {
                 By {article.author_name} <br /> {new Date(article.date).toLocaleDateString()}
               </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Read More</button>
+                  <Link to={`/article/${article._id}`} className="btn btn-primary">Read More</Link>
                 </div>
               </div>
             </div>
