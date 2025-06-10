@@ -7,6 +7,8 @@ import ErrorPage from "../pages/ErrorPage";
 import AboutUs from "../pages/AboutUs";
 import PostArticle from "../pages/PostArticle";
 import PrivateRoute from "../provider/PrivateRoute";
+import AllArticles from "../pages/AllArticles";
+import Loading from "../pages/Loading";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,13 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home
+      },
+      {
+        path: "/articles",
+        loader: () => 
+          fetch("http://localhost:5000/articles"),
+        HydrateFallback: Loading,
+        Component: AllArticles
       },
       {
         path: "/postArticle",
