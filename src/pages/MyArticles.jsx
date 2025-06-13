@@ -1,31 +1,40 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 import JoditEditor from "jodit-react";
 import MyData from "../components/MyData";
+import { myArticlesData } from "../api/myArticlesData";
+import Loading from "./Loading";
 
 function MyArticles() {
   const { user } = useContext(AuthContext);
-  const articles = useLoaderData();
   const [myArticle, setMyArticle] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //console.log(articles);
 
   const userId = user.uid;
 
   useEffect(() => {
-    if (articles && userId) {
-      const userArticles = articles.filter(
-        (art) => art.author_id === userId
-      );
-      setMyArticle(userArticles);
-    }
-  }, [articles, userId]);
+    // if (!user?.uid) return;
+
+    const fetchArticles = async () => {
+          setLoading(true);
+          try {
+            const data = await myArticlesData(userId);
+            setMyArticle(data);
+          } catch (error) {
+            console.error("Error fetching articles:", error);
+          } finally {
+            setLoading(false);
+          }
+        };
+        fetchArticles();
+  }, [userId]);
 
   //console.log(myArticle);
 
@@ -114,6 +123,7 @@ function MyArticles() {
 
   return (
     <div className="my-10 text-black min-h-screen">
+      {loading && <Loading></Loading>}
       {myArticle.length === 0 ? (
         <div className="max-w-5xl mx-auto bg-gray-100 shadow-md rounded-xl py-24 text-center">
           <h2 className="text-2xl font-semibold mb-2 text-red-600">

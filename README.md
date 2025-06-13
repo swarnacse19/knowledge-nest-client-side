@@ -1,12 +1,45 @@
-# React + Vite
+# 📚 Knowledge Sharing Platform for Students
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A MERN stack web application where students can post articles, share knowledge, and engage in discussions through comments.
 
-Currently, two official plugins are available:
+## Website name and Live URL
+name : KnowledgeNest
+liveUrl: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Purpose
+To build a responsive and secure platform that allows students to publish articles, comment, and collaborate in an engaging environment.
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User authentication with Firebase (email/password + Google login)
+- Post, edit, and delete articles (with rich text editor)
+- Comment and like functionality (stored in MongoDB)
+- All Articles, My Articles (private), and Post Article (private) pages
+- Category-based filtering and tags
+- Responsive design (mobile, tablet, desktop)
+- JWT authentication for secure private routes and APIs
+- Light/Dark theme toggle
+- Extra homepage sections: Top Contributors and Trending Tags
+- Custom 404 Error Page
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React, React Router DOM, Firebase, Tailwind CSS, Jodit-React, Axios, Framer Motion/AOS
+- **Backend**: Node.js, Express.js, MongoDB, CORS, JSON Web Token, dotenv
+
+## 📦 NPM Packages Used
+
+### Client:
+- react-router-dom
+- firebase
+- axios
+- jodit-react
+- react-toastify
+- framer-motion
+
+### Server:
+- express
+- cors
+- mongodb
+- dotenv
+

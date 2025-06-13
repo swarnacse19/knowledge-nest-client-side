@@ -13,7 +13,7 @@ const ArticlesDetails = () => {
 
   const hasLiked = user && likes.includes(user.uid);
 
-  // 🟡 Load comments separately
+  //  Load comments separately
   useEffect(() => {
     fetch(`http://localhost:5000/comments?article_id=${article._id}`)
       .then((res) => res.json())

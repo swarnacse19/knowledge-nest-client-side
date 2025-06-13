@@ -41,8 +41,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/myArticles",
-        loader: () => fetch("http://localhost:5000/articles"),
-        HydrateFallback: Loading,
         element: (
           <PrivateRoute>
             <MyArticles></MyArticles>
