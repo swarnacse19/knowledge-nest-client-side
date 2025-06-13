@@ -1,10 +1,8 @@
 # 📚 Knowledge Sharing Platform for Students
 
-A MERN stack web application where students can post articles, share knowledge, and engage in discussions through comments.
-
 ## Website name and Live URL
-name : KnowledgeNest
-liveUrl: 
+### name : KnowledgeNest
+### liveUrl: 
 
 ## 🎯 Project Purpose
 To build a responsive and secure platform that allows students to publish articles, comment, and collaborate in an engaging environment.
@@ -24,7 +22,7 @@ To build a responsive and secure platform that allows students to publish articl
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, React Router DOM, Firebase, Tailwind CSS, Jodit-React, Axios, Framer Motion/AOS
+- **Frontend**: React, React Router, Firebase, Tailwind CSS, Jodit-React, Axios, Framer Motion
 - **Backend**: Node.js, Express.js, MongoDB, CORS, JSON Web Token, dotenv
 
 ## 📦 NPM Packages Used
