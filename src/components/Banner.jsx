@@ -7,7 +7,13 @@ function Banner() {
     <div
       className="hero h-[520px]"
       style={{
-        backgroundImage: "url('https://i.ibb.co/HL0qXW75/reading.jpg')",
+        backgroundImage: `linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0) 80%,
+        rgba(0, 0, 0, 0.4) 100%
+        ), url('https://i.ibb.co/HL0qXW75/reading.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -21,14 +27,14 @@ function Banner() {
                 duration: 6,
                 repeat: Infinity,
                 repeatType: "loop",
-                ease: "easeInOut", 
+                ease: "easeInOut",
               },
             }}
             className="mb-5 text-2xl md:text-5xl font-bold"
           >
             Share Your Knowledge
           </motion.h1>
-          <p className="mb-8 text-lg text-gray-700">
+          <p className="mb-8 text-lg font-medium text-gray-700">
             An interactive platform designed for students to share insightful
             articles, exchange knowledge, and foster meaningful discussions
             through comments and collaboration.
