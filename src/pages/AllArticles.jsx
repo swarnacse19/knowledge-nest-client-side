@@ -1,6 +1,8 @@
-import { Link, useLoaderData } from "react-router";
+import { useLoaderData } from "react-router";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
+import Article from "./Article";
+import { filteredData } from "../api/filteredData";
 
 const AllArticles = () => {
   const initialArticles = useLoaderData();
@@ -23,22 +25,11 @@ const AllArticles = () => {
   }, []);
 
   useEffect(() => {
-    const fetchFilteredArticles = async () => {
+    const fetchArticles = async () => {
       setLoading(true);
-      let url = "http://localhost:5000/articles";
-
       try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if (category) {
-          const filteredData = data.filter(
-            (article) => article.category === category
-          );
-          setArticles(filteredData);
-        } else {
-          setArticles(data);
-        }
+        const data = await filteredData(category);
+        setArticles(data);
       } catch (error) {
         console.error("Error fetching articles:", error);
       } finally {
@@ -46,7 +37,7 @@ const AllArticles = () => {
       }
     };
 
-    fetchFilteredArticles();
+    fetchArticles();
   }, [category]);
 
   return (
@@ -72,17 +63,7 @@ const AllArticles = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
           {articles.map((article) => (
-            <div key={article._id} className="card border w-96">
-              <div className="card-body">
-                <h2 className="card-title">{article.title}</h2>
-                <p className="text-sm text-gray-600">
-                By {article.author_name} <br /> {new Date(article.date).toLocaleDateString()}
-              </p>
-                <div className="card-actions justify-end">
-                  <Link to={`/article/${article._id}`} className="btn btn-primary">Read More</Link>
-                </div>
-              </div>
-            </div>
+            <Article key={article._id} article={article} />
           ))}
         </div>
       )}

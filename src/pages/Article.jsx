@@ -1,0 +1,21 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+function Article({article}) {
+
+  return (
+    <div className="card border w-96">
+              <div className="card-body">
+                <h2 className="card-title">{article.title}</h2>
+                <p className="text-sm text-gray-600">
+                By {article.author_name} <br /> {new Date(article.date).toLocaleDateString()}
+              </p>
+                <div className="card-actions justify-end">
+                  <Link to={`/article/${article._id}`} className="btn btn-primary">Read More</Link>
+                </div>
+              </div>
+            </div>
+  );
+}
+
+export default Article;
