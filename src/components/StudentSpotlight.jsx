@@ -2,12 +2,12 @@ import React from "react";
 
 const spotlightStudents = [
   {
-    name: "Shaida Khanom Sharna",
+    name: "Prema Chowdhury",
     image: "https://i.ibb.co/bjfz1Dv4/student1.jpg",
     description: "A passionate tech blogger and full-stack enthusiast.",
   },
   {
-    name: "Sanjida Akter Saba",
+    name: "Shantona Rahman",
     image: "https://i.ibb.co/Qjn8Lb78/student2.jpg",
     description: "Loves to write about AI and Data Science trends.",
   },
@@ -20,13 +20,13 @@ const spotlightStudents = [
 
 const StudentSpotlight = () => {
   return (
-    <div className="mt-16 mb-7 max-w-11/12 mx-auto">
+    <div className="mt-16 mb-20 max-w-11/12 mx-auto">
       <h2 className="text-3xl font-bold text-center mb-8">🎓 Student Spotlight</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {spotlightStudents.map((student, idx) => (
           <div
             key={idx}
-            className="bg-base-100 shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
+            className="bg-base-200 shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
           >
             <img
               src={student.image}
