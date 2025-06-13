@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../components/Banner';
 import FeaturedArticles from './FeaturedArticles';
 import Categories from './Categories';
+import StudentSpotlight from '../components/StudentSpotlight';
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
       <Banner></Banner>
       <FeaturedArticles></FeaturedArticles>
       <Categories></Categories>
+      <StudentSpotlight></StudentSpotlight>
     </div>
   );
 }
