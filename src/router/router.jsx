@@ -11,6 +11,7 @@ import AllArticles from "../pages/AllArticles";
 import Loading from "../pages/Loading";
 import MyArticles from "../pages/MyArticles";
 import ArticlesDetails from "../pages/ArticlesDetails";
+import CategoryPage from "../pages/CategoryPage";
 
 const router = createBrowserRouter([
   {
@@ -19,29 +20,34 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
       },
       {
         path: "/articles",
-        loader: () => 
-          fetch("http://localhost:5000/articles"),
+        loader: () => fetch("http://localhost:5000/articles"),
         HydrateFallback: Loading,
-        Component: AllArticles
+        Component: AllArticles,
       },
       {
         path: "/article/:id",
-        loader: ({params}) => fetch(`http://localhost:5000/articles/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/articles/${params.id}`),
         hydrateFallbackElement: <Loading></Loading>,
-        Component: ArticlesDetails
+        Component: ArticlesDetails,
+      },
+      {
+        path: "/category/:name",
+        Component: CategoryPage,
       },
       {
         path: "/myArticles",
-        loader: () => 
-          fetch("http://localhost:5000/articles"),
+        loader: () => fetch("http://localhost:5000/articles"),
         HydrateFallback: Loading,
-        element: <PrivateRoute>
-          <MyArticles></MyArticles>
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyArticles></MyArticles>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/postArticle",
@@ -49,26 +55,26 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <PostArticle></PostArticle>
           </PrivateRoute>
-        )
+        ),
       },
       {
         path: "/about",
-        Component: AboutUs
+        Component: AboutUs,
       },
-    ]
+    ],
   },
   {
     path: "/login",
-    Component: Login
+    Component: Login,
   },
   {
     path: "/register",
-    Component: Register
+    Component: Register,
   },
   {
     path: "/*",
-    Component: ErrorPage
-  }
+    Component: ErrorPage,
+  },
 ]);
 
 export default router;
