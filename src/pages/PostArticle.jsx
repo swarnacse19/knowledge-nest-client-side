@@ -13,7 +13,6 @@ function PostArticle() {
   const { user } = use(AuthContext);
   const editor = useRef(null);
   const [content, setContent] = useState("");
-  console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();

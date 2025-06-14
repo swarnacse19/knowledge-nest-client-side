@@ -1,30 +1,42 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const ArticlesDetails = () => {
-  const article = useLoaderData();
+  //const article = useLoaderData();
   const { user } = use(AuthContext);
-  const [likes, setLikes] = useState(article.likes || []);
+  const { id } = useParams(); // if you're on route like /articles/:id
+  const [article, setArticle] = useState([]);
+  useEffect(() => {
+  fetch(`http://localhost:5000/articles/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setArticle(data);
+      setLikes(data.likes || []);
+    });
+}, [id]);
+  const [likes, setLikes] = useState(
+    Array.isArray(article.likes) ? article.likes : []
+  );
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [isLiking, setIsLiking] = useState(false);
   const [isCommenting, setIsCommenting] = useState(false);
 
-  const hasLiked = user && likes.includes(user.uid);
+  const hasLiked = user && likes?.includes(user.uid);
 
-  //  Load comments separately
   useEffect(() => {
     fetch(`http://localhost:5000/comments?article_id=${article._id}`)
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [article._id]);
 
-  // ✅ Handle Like
   const handleLike = () => {
     if (!user || hasLiked) return;
+    console.log("article ID:", article._id);
 
     setIsLiking(true);
+    setLikes((prevLikes) => [...prevLikes, user.uid]);
     fetch(`http://localhost:5000/articles/${article._id}/like`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -32,13 +44,17 @@ const ArticlesDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setLikes(data.likes);
+        if (data.likes && Array.isArray(data.likes)) {
+          setLikes(data.likes);
+        }
         setIsLiking(false);
       })
-      .catch(() => setIsLiking(false));
+      .catch(() => {
+        setLikes((prevLikes) => prevLikes.filter((id) => id !== user.uid));
+        setIsLiking(false);
+      });
   };
 
-  // ✅ Handle Comment
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     if (!user || !newComment.trim()) return;
@@ -100,7 +116,7 @@ const ArticlesDetails = () => {
             hasLiked ? "bg-green-300" : "bg-blue-500 text-white"
           }`}
         >
-          👍 Like ({likes.length})
+          👍 Like ({Array.isArray(likes) ? likes.length : 0})
         </button>
       </div>
 
@@ -143,8 +159,8 @@ const ArticlesDetails = () => {
             </button>
           </form>
         ) : (
-          <p className="text-gray-600 mt-4 italic">
-            🔐 Login to comment or like this article.
+          <p className="text-gray-600 mt-4 font-medium italic">
+            Login to comment or like this article.
           </p>
         )}
       </div>
