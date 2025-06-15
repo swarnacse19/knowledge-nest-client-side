@@ -18,14 +18,14 @@ function MyArticles() {
   //console.log(articles);
 
   const userId = user.uid;
-  console.log(user.accessToken);
+  const accessToken = user.accessToken;
   useEffect(() => {
     // if (!user?.uid) return;
 
     const fetchArticles = async () => {
           setLoading(true);
           try {
-            const data = await myArticlesData(userId, user.accessToken);
+            const data = await myArticlesData(userId, accessToken);
             setMyArticle(data);
           } catch (error) {
             console.error("Error fetching articles:", error);
@@ -54,9 +54,10 @@ function MyArticles() {
     const form = e.target;
     const formData = new FormData(form);
     const newData = Object.fromEntries(formData.entries());
+    newData.author_id = user.uid;
     newData.content = content;
 
-    console.log(newData);
+    //console.log(newData);
     newData.tags = newData.tags
     .split(",")
     .map((tag) => tag.trim())
@@ -66,6 +67,7 @@ function MyArticles() {
       method: "PUT",
       headers: {
         "content-type": "application/json",
+        "authorization": `Bearer ${accessToken}`,
       },
       body: JSON.stringify(newData),
     })
@@ -102,6 +104,9 @@ function MyArticles() {
           `http://localhost:5000/articles/${id}`,
           {
             method: "DELETE",
+            headers: {
+              "authorization": `Bearer ${accessToken}`,
+            }
           }
         )
           .then((res) => res.json())

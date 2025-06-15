@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 
 function PostArticle() {
   const { user } = use(AuthContext);
+  const accessToken = user.accessToken;
+
   const editor = useRef(null);
   const [content, setContent] = useState("");
 
@@ -36,6 +38,7 @@ function PostArticle() {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        "authorization": `Bearer ${accessToken}`,
       },
       body: JSON.stringify(newArticle),
     })
