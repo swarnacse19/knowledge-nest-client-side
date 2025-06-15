@@ -9,14 +9,6 @@ import { FaMoon, FaSun } from "react-icons/fa";
 function Navbar({ darkMode, setDarkMode }) {
   const { user, logOut } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, [darkMode]);
-
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -47,7 +39,7 @@ function Navbar({ darkMode, setDarkMode }) {
           <Tooltip id="user-tooltip" place="bottom" className="text-sm font-medium" />
         </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow text-black">
         <li>
           <Link to="/myArticles">My Articles</Link>
         </li>
@@ -79,7 +71,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
         
         <div className="hidden lg:flex items-center gap-6">
-          <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium">{links}</ul>
+          <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium text-black">{links}</ul>
 
           
           <button

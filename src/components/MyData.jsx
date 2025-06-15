@@ -10,7 +10,7 @@ function MyData({ post, openModal, handleDelete }) {
   } = post;
 
   return (
-    <tr className="border-t border-neutral-400 text-black font-medium">
+    <tr className="border-t border-neutral-400 font-medium">
       <td className="font-semibold">{title}</td>
       <td>{category}</td>
       <td className="text-blue-600">{tags.map((tag, index) => <p key={index}>#{tag}</p>)}</td>

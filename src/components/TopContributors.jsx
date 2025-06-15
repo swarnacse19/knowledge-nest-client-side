@@ -36,7 +36,7 @@ const TopContributors = () => {
               alt={user.name}
               className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-700"
             />
-            <h3 className="text-xl font-semibold">{user.name}</h3>
+            <h3 className="text-xl font-semibold text-black">{user.name}</h3>
             <p className="text-gray-600">📝 Articles: {user.articles}</p>
             <p className="text-gray-600">💬 Comments: {user.comments}</p>
           </div>

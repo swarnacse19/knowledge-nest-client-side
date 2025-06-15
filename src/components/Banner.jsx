@@ -13,7 +13,7 @@ function Banner() {
         rgba(0, 0, 0, 0) 20%,
         rgba(0, 0, 0, 0) 80%,
         rgba(0, 0, 0, 0.4) 100%
-        ), url('https://i.ibb.co/HL0qXW75/reading.jpg')`,
+        ), url('https://i.ibb.co/qLm7tttG/bg2.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

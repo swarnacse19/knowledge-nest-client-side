@@ -122,10 +122,10 @@ function MyArticles() {
 
 
   return (
-    <div className="my-10 text-black min-h-screen">
+    <div className="my-10  min-h-screen">
       {loading && <Loading></Loading>}
       {myArticle.length === 0 ? (
-        <div className="max-w-5xl mx-auto bg-gray-100 shadow-md rounded-xl py-24 text-center">
+        <div className="max-w-5xl mx-auto bg-gray-100 shadow-md rounded-xl py-24 text-center text-black">
           <h2 className="text-2xl font-semibold mb-2 text-red-600">
             No Posts Found
           </h2>

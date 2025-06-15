@@ -33,7 +33,7 @@ const StudentSpotlight = () => {
               alt={student.name}
               className="w-24 h-24 rounded-full mb-4 border-4 border-purple-500"
             />
-            <h3 className="text-xl font-semibold">{student.name}</h3>
+            <h3 className="text-xl font-semibold text-black">{student.name}</h3>
             <p className="text-gray-600 mt-2">{student.description}</p>
           </div>
         ))}
