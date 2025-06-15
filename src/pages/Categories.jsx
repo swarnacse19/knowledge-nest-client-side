@@ -26,7 +26,7 @@ const Categories = () => {
           <Link
             to={`/category/${cat}`}
             key={index}
-            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+            className="px-7 py-2 bg-gray-200 rounded-2xl hover:bg-gray-300 transition"
           >
             {cat}
           </Link>
