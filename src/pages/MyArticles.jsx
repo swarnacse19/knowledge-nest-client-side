@@ -18,14 +18,14 @@ function MyArticles() {
   //console.log(articles);
 
   const userId = user.uid;
-
+  console.log(user.accessToken);
   useEffect(() => {
     // if (!user?.uid) return;
 
     const fetchArticles = async () => {
           setLoading(true);
           try {
-            const data = await myArticlesData(userId);
+            const data = await myArticlesData(userId, user.accessToken);
             setMyArticle(data);
           } catch (error) {
             console.error("Error fetching articles:", error);
