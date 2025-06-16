@@ -1,8 +1,8 @@
 # 📚 KnowledgeNest — A Knowledge Sharing Platform for Students
 
 
-**Website Name** : KnowledgeNest
-**Live URL**: https://knowlwdge-platform-auth.web.app
+## Website Name : KnowledgeNest
+## Live URL : https://knowlwdge-platform-auth.web.app
 
 ---
 
