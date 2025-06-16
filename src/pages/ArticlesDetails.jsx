@@ -1,20 +1,11 @@
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import axios from "axios";
 
 const ArticlesDetails = () => {
-  //const article = useLoaderData();
+  const article = useLoaderData();
   const { user } = use(AuthContext);
-  const { id } = useParams(); // if you're on route like /articles/:id
-  const [article, setArticle] = useState([]);
-  useEffect(() => {
-  fetch(`http://localhost:5000/articles/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setArticle(data);
-      setLikes(data.likes || []);
-    });
-}, [id]);
   const [likes, setLikes] = useState(
     Array.isArray(article.likes) ? article.likes : []
   );
@@ -24,6 +15,7 @@ const ArticlesDetails = () => {
   const [isCommenting, setIsCommenting] = useState(false);
 
   const hasLiked = user && likes?.includes(user.uid);
+  const isOwner = user && user.uid === article.author_id;
 
   useEffect(() => {
     fetch(`http://localhost:5000/comments?article_id=${article._id}`)
@@ -31,26 +23,20 @@ const ArticlesDetails = () => {
       .then((data) => setComments(data));
   }, [article._id]);
 
-  const handleLike = () => {
+  const handleLike = (id) => {
     if (!user || hasLiked) return;
-    console.log("article ID:", article._id);
-
+    console.log(id);
     setIsLiking(true);
-    setLikes((prevLikes) => [...prevLikes, user.uid]);
-    fetch(`http://localhost:5000/articles/${article._id}/like`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: user.uid }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.likes && Array.isArray(data.likes)) {
-          setLikes(data.likes);
+    axios
+      .patch(`http://localhost:5000/articles/${id}`, { likes: user.uid })
+      .then((res) => {
+        if (res.data.success) {
+          setLikes((prevLikes) => [...prevLikes, user.uid]);
         }
         setIsLiking(false);
       })
-      .catch(() => {
-        setLikes((prevLikes) => prevLikes.filter((id) => id !== user.uid));
+      .catch((error) => {
+        console.log(error);
         setIsLiking(false);
       });
   };
@@ -110,7 +96,7 @@ const ArticlesDetails = () => {
 
       <div className="mb-6 flex items-center gap-4">
         <button
-          onClick={handleLike}
+          onClick={() => handleLike(article._id)}
           disabled={!user || hasLiked || isLiking}
           className={`px-3 py-1 rounded ${
             hasLiked ? "bg-green-300" : "bg-blue-500 text-white"
@@ -147,12 +133,16 @@ const ArticlesDetails = () => {
               onChange={(e) => setNewComment(e.target.value)}
               className="w-full border p-2 rounded mb-2"
               rows="3"
-              placeholder="Write a comment..."
+              placeholder={
+                isOwner
+                  ? "Kindly avoid self-commenting on your posts."
+                  : "Write a comment..."
+              }
               required
             />
             <button
               type="submit"
-              disabled={isCommenting}
+              disabled={isCommenting || isOwner}
               className="bg-green-600 text-white px-4 py-1 rounded"
             >
               {isCommenting ? "Posting..." : "Post Comment"}

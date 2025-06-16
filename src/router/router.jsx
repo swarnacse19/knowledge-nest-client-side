@@ -30,9 +30,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/article/:id",
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/articles/${params.id}`),
-        // hydrateFallbackElement: <Loading></Loading>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/articles/${params.id}`),
+        hydrateFallbackElement: <Loading></Loading>,
         Component: ArticlesDetails,
       },
       {

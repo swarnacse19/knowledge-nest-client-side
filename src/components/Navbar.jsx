@@ -92,14 +92,14 @@ function Navbar({ darkMode, setDarkMode }) {
         
         <div className="lg:hidden">
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost">
+            <label tabIndex={0} className="btn text-black btn-ghost">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52 text-[16px]"
+              className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52 text-black text-[16px]"
             >
               {links}
               <li>
