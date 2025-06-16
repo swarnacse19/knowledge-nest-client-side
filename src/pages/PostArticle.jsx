@@ -32,7 +32,7 @@ function PostArticle() {
       .map((tag) => tag.trim())
       .filter((tag) => tag.length > 0);
 
-    console.log(newArticle);
+    //console.log(newArticle);
 
     fetch("http://localhost:5000/articles", {
       method: "POST",
