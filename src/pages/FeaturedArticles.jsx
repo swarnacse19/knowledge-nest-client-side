@@ -9,7 +9,9 @@ const FeaturedArticles = () => {
   useEffect(() => {
     const loadArticles = async () => {
       try {
-        const res = await fetch("http://localhost:5000/articles");
+        const res = await fetch(
+          "https://b11a11-server-side-swarnacse19.vercel.app/articles"
+        );
         const data = await res.json();
 
         const sorted = data
@@ -32,12 +34,13 @@ const FeaturedArticles = () => {
       <h2 className="text-2xl font-bold mb-5 text-center">Featured Articles</h2>
       {loading ? (
         <Loading></Loading>
-      ) : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {articles.map((article) => (
-          <Article key={article._id} article={article} />
-        ))}
-      </div>
-      }
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {articles.map((article) => (
+            <Article key={article._id} article={article} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

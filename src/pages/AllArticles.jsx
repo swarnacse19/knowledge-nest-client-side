@@ -14,7 +14,9 @@ const AllArticles = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://localhost:5000/categories");
+        const res = await fetch(
+          "https://b11a11-server-side-swarnacse19.vercel.app/categories"
+        );
         const data = await res.json();
         setCategories(data);
       } catch (error) {
@@ -49,7 +51,9 @@ const AllArticles = () => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option className="text-black" value="">All</option>
+          <option className="text-black" value="">
+            All
+          </option>
           {categories.map((cat, idx) => (
             <option className="text-black" key={idx} value={cat}>
               {cat}

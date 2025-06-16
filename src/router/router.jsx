@@ -24,14 +24,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/articles",
-        loader: () => fetch("http://localhost:5000/articles"),
+        loader: () =>
+          fetch("https://b11a11-server-side-swarnacse19.vercel.app/articles"),
         HydrateFallback: Loading,
         Component: AllArticles,
       },
       {
         path: "/article/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/articles/${params.id}`),
+          fetch(
+            `https://b11a11-server-side-swarnacse19.vercel.app/articles/${params.id}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
         Component: ArticlesDetails,
       },

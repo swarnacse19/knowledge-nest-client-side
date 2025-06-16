@@ -7,7 +7,9 @@ const Categories = () => {
   useEffect(() => {
     const loadCategories = async () => {
       try {
-        const res = await fetch("http://localhost:5000/categories");
+        const res = await fetch(
+          "https://b11a11-server-side-swarnacse19.vercel.app/categories"
+        );
         const data = await res.json();
         setCategories(data);
       } catch (err) {

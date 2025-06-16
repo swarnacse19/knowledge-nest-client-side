@@ -23,17 +23,17 @@ function MyArticles() {
     // if (!user?.uid) return;
 
     const fetchArticles = async () => {
-          setLoading(true);
-          try {
-            const data = await myArticlesData(userId, accessToken);
-            setMyArticle(data);
-          } catch (error) {
-            console.error("Error fetching articles:", error);
-          } finally {
-            setLoading(false);
-          }
-        };
-        fetchArticles();
+      setLoading(true);
+      try {
+        const data = await myArticlesData(userId, accessToken);
+        setMyArticle(data);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArticles();
   }, [userId]);
 
   //console.log(myArticle);
@@ -59,15 +59,15 @@ function MyArticles() {
 
     //console.log(newData);
     newData.tags = newData.tags
-    .split(",")
-    .map((tag) => tag.trim())
-    .filter((tag) => tag.length > 0);
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
 
-    fetch(`http://localhost:5000/articles/${id}`, {
+    fetch(`https://b11a11-server-side-swarnacse19.vercel.app/articles/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
-        "authorization": `Bearer ${accessToken}`,
+        authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(newData),
     })
@@ -101,12 +101,12 @@ function MyArticles() {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `http://localhost:5000/articles/${id}`,
+          `https://b11a11-server-side-swarnacse19.vercel.app/articles/${id}`,
           {
             method: "DELETE",
             headers: {
-              "authorization": `Bearer ${accessToken}`,
-            }
+              authorization: `Bearer ${accessToken}`,
+            },
           }
         )
           .then((res) => res.json())
@@ -124,7 +124,6 @@ function MyArticles() {
       }
     });
   };
-
 
   return (
     <div className="my-10  min-h-screen">

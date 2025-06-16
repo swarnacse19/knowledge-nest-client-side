@@ -1,5 +1,5 @@
 export const filteredData = async (category) => {
-  let url = "http://localhost:5000/articles";
+  let url = "https://b11a11-server-side-swarnacse19.vercel.app/articles";
   if (category) {
     url += `?category=${category}`;
   }

@@ -34,11 +34,11 @@ function PostArticle() {
 
     //console.log(newArticle);
 
-    fetch("http://localhost:5000/articles", {
+    fetch("https://b11a11-server-side-swarnacse19.vercel.app/articles", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "authorization": `Bearer ${accessToken}`,
+        authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(newArticle),
     })
@@ -152,5 +152,3 @@ function PostArticle() {
 }
 
 export default PostArticle;
-
-

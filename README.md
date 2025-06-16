@@ -1,43 +1,79 @@
-# 📚 Knowledge Sharing Platform for Students
+# 📚 KnowledgeNest — A Knowledge Sharing Platform for Students
 
-## Website name and Live URL
-### name : KnowledgeNest
-### liveUrl: 
+
+**Website Name** : KnowledgeNest
+**Live URL**: https://knowlwdge-platform-auth.web.app
+
+---
 
 ## 🎯 Project Purpose
-To build a responsive and secure platform that allows students to publish articles, comment, and collaborate in an engaging environment.
 
-## ✨ Key Features
+This project serves as a modern and responsive MERN stack platform where students can post insightful articles, engage through comments, and share knowledge across various categories. It enables authenticated users to create and manage articles.
 
-- User authentication with Firebase (email/password + Google login)
-- Post, edit, and delete articles (with rich text editor)
-- Comment and like functionality (stored in MongoDB)
-- All Articles, My Articles (private), and Post Article (private) pages
-- Category-based filtering and tags
-- Responsive design (mobile, tablet, desktop)
-- JWT authentication for secure private routes and APIs
-- Light/Dark theme toggle
-- Extra homepage sections: Top Contributors and Trending Tags
-- Custom 404 Error Page
+---
 
-## 🛠️ Tech Stack
+## 🚀 Key Features
 
-- **Frontend**: React, React Router, Firebase, Tailwind CSS, Jodit-React, Axios, Framer Motion
-- **Backend**: Node.js, Express.js, MongoDB, CORS, JSON Web Token, dotenv
+### 🔓 Public Access
+- View all articles
+- Read full article details
 
-## 📦 NPM Packages Used
+### 🔐 Authenticated Features
+- Post, edit, and delete own articles
+- Comment on others article
+- Like functionality
+- Access personal dashboard (`My Articles`)
 
-### Client:
-- react-router-dom
-- firebase
-- axios
-- jodit-react
-- react-toastify
-- framer-motion
+### 🌐 Pages and Components
+- Home with featured articles, category section, banner, and extras
+- All Articles
+- Article Details with likes & comments
+- Post Article (Private)
+- My Articles (Private)
+- Register & Login (Email + Social Login)
+- 404 Page
+- Theme toggle (light/dark)
+- Footer and Navigation
 
-### Server:
-- express
-- cors
-- mongodb
-- dotenv
+---
+
+
+## 🧱 Tech Stack
+
+- React — Core frontend library for building UI
+
+- Vite — Fast bundler and development environment
+
+- Tailwind CSS — Utility-first CSS framework for styling
+
+- DaisyUI — Prebuilt Tailwind CSS components with themes
+
+- React Router v7 — Client-side routing and navigation
+
+- Firebase — Authentication and hosting
+
+- React Tooltip — Lightweight and customizable tooltips
+
+- React Toastify — Toast notifications for feedback
+
+- SweetAlert2 — Elegant alerts and modals
+
+- React Icons — A wide collection of icon packs
+
+
+
+## 📦 NPM Packages Used (Frontend)
+
+- `react-router`
+- `firebase`
+- `axios`
+- `react-toastify`
+- `jodit-react`
+- `motion` 
+- `react-icons`
+- `lottie-react`
+- `react-helmet-async`
+- `react-tooltip`
+- `sweetalert2`
+- `tailwindcss`
 

@@ -18,7 +18,9 @@ const ArticlesDetails = () => {
   const isOwner = user && user.uid === article.author_id;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/comments?article_id=${article._id}`)
+    fetch(
+      `https://b11a11-server-side-swarnacse19.vercel.app/comments?article_id=${article._id}`
+    )
       .then((res) => res.json())
       .then((data) => setComments(data));
   }, [article._id]);
@@ -28,7 +30,10 @@ const ArticlesDetails = () => {
     console.log(id);
     setIsLiking(true);
     axios
-      .patch(`http://localhost:5000/articles/${id}`, { likes: user.uid })
+      .patch(
+        `https://b11a11-server-side-swarnacse19.vercel.app/articles/${id}`,
+        { likes: user.uid }
+      )
       .then((res) => {
         if (res.data.success) {
           setLikes((prevLikes) => [...prevLikes, user.uid]);
@@ -54,7 +59,7 @@ const ArticlesDetails = () => {
     };
 
     setIsCommenting(true);
-    fetch("http://localhost:5000/comments", {
+    fetch("https://b11a11-server-side-swarnacse19.vercel.app/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(commentObj),
