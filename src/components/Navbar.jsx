@@ -78,7 +78,7 @@ function Navbar({ darkMode, setDarkMode }) {
             onClick={() => setDarkMode(!darkMode)}
             className="text-xl p-2 rounded-full hover:bg-purple-100 dark:hover:bg-gray-700"
           >
-            {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-800" />}
+            {darkMode ? <FaSun className="text-purple-700" /> : <FaMoon className="text-gray-800" />}
           </button>
 
           

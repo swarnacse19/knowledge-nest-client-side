@@ -17,24 +17,19 @@ function AuthProvider({ children }) {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   }
-  const signIn = (email, password) => {
+  const signIn = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        localStorage.setItem("accessToken", result.user.accessToken);
-        return result;
-      });
+    const result = await signInWithEmailAndPassword(auth, email, password);
+    localStorage.setItem("accessToken", result.user.accessToken);
+    return result;
 
   };
   const updateUser = (updatedData) => {
     return updateProfile(auth.currentUser, updatedData);
   };
-  const logOut = () => {
-    return signOut(auth)
-      .then(() => {
-        localStorage.removeItem("accessToken");
-      });
-
+  const logOut = async () => {
+    await signOut(auth);
+    localStorage.removeItem("accessToken");
   };
 
   const resetPassword = (email) => {

@@ -49,9 +49,9 @@ const AllArticles = () => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="">All</option>
+          <option className="text-black" value="">All</option>
           {categories.map((cat, idx) => (
-            <option key={idx} value={cat}>
+            <option className="text-black" key={idx} value={cat}>
               {cat}
             </option>
           ))}
