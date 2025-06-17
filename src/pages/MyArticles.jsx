@@ -165,7 +165,7 @@ function MyArticles() {
 
       {isModalOpen && selectedArticle && (
         <dialog open className="modal modal-open">
-          <div className="modal-box">
+          <div className="modal-box text-black">
             <form method="dialog">
               <button
                 className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
