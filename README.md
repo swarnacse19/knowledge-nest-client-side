@@ -76,4 +76,5 @@ This project serves as a modern and responsive MERN stack platform where student
 - `react-tooltip`
 - `sweetalert2`
 - `tailwindcss`
+- `react-slick`
 

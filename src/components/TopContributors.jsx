@@ -1,4 +1,7 @@
 import React from "react";
+import { FaStarHalfAlt } from "react-icons/fa";
+import { LuNotebookPen } from "react-icons/lu";
+import { LiaCommentDots } from "react-icons/lia";
 
 const topContributors = [
   {
@@ -24,7 +27,7 @@ const topContributors = [
 const TopContributors = () => {
   return (
     <div className="mt-16 mb-20 max-w-11/12 mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">🌟 Top Contributors</h2>
+      <h2 className="text-3xl flex items-center justify-center gap-3 font-bold mb-8"><FaStarHalfAlt color="purple"/> Top Contributors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {topContributors.map((user, index) => (
           <div
@@ -37,8 +40,8 @@ const TopContributors = () => {
               className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-700"
             />
             <h3 className="text-xl font-semibold text-black">{user.name}</h3>
-            <p className="text-gray-600">📝 Articles: {user.articles}</p>
-            <p className="text-gray-600">💬 Comments: {user.comments}</p>
+            <p className="text-gray-600 flex justify-center items-center  gap-3"><LuNotebookPen size={20}/> Articles: {user.articles}</p>
+            <p className="text-gray-600 flex justify-center items-center gap-3"><LiaCommentDots size={24}/>  Comments: {user.comments}</p>
           </div>
         ))}
       </div>

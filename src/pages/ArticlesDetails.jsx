@@ -2,6 +2,10 @@ import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
+import { AiFillLike } from "react-icons/ai";
+import { FaFolder } from "react-icons/fa";
+import { IoMdPricetags } from "react-icons/io";
+import { LiaCommentDots } from "react-icons/lia";
 
 const ArticlesDetails = () => {
   const article = useLoaderData();
@@ -77,26 +81,26 @@ const ArticlesDetails = () => {
     <div className="max-w-4xl mx-auto px-4 py-6">
       <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
 
-      <div className="flex items-center gap-3 text-sm text-gray-600 mb-4">
+      <div className="flex items-center gap-3 text-sm mb-4">
         <img
           src={article.author_photo}
           alt="author"
           className="w-8 h-8 rounded-full border"
         />
-        <span>{article.author_name}</span>
-        <span>• {new Date(article.date).toLocaleDateString()}</span>
+        <span>{article.author_name}</span> <br /> 
+        <span> {new Date(article.date).toLocaleDateString()}</span>
       </div>
 
       <div className="mb-4">
         <div
-          className="text-gray-800 prose max-w-none"
+          className="prose max-w-none"
           dangerouslySetInnerHTML={{ __html: article.content }}
         ></div>
       </div>
 
-      <div className="text-sm text-gray-500 mb-4">
-        <span>📁 Category: {article.category}</span> |
-        <span> 🏷️ Tags: {article.tags?.join(", ")}</span>
+      <div className="text-sm text-gray-500 mb-4 flex gap-3">
+        <span className="flex items-center gap-3"><FaFolder size={20} color="orange"/> Category: {article.category}</span> |
+        <span className="flex items-center gap-3"> <IoMdPricetags size={20} color="orange"/> Tags: <span className="text-blue-700 font-medium">{article.tags?.join(", ")}</span></span>
       </div>
 
       <div className="mb-6 flex items-center gap-4">
@@ -104,30 +108,30 @@ const ArticlesDetails = () => {
           onClick={() => handleLike(article._id)}
           disabled={!user || hasLiked || isLiking}
           className={`px-3 py-1 rounded ${
-            hasLiked ? "bg-green-300" : "bg-blue-500 text-white"
+            hasLiked ? "bg-green-500" : "bg-blue-500 text-white"
           }`}
         >
-          👍 Like ({Array.isArray(likes) ? likes.length : 0})
+          <div className="flex items-center gap-2"><AiFillLike size={20}/> Like ({Array.isArray(likes) ? likes.length : 0})</div>
         </button>
       </div>
 
       <hr className="mb-6" />
 
       <div>
-        <h2 className="text-xl font-semibold mb-2">
-          💬 Comments ({comments.length})
+        <h2 className="text-xl flex items-center gap-3 font-semibold mb-2">
+          <LiaCommentDots size={24}/> Comments ({comments.length})
         </h2>
         {comments.map((c, i) => (
           <div key={i} className="mb-4 border-b pb-2">
             <div className="flex items-center gap-2 mb-1">
               <img
                 src={c.user_photo}
-                className="w-6 h-6 rounded-full"
+                className="w-6 h-6 border rounded-full"
                 alt="user"
               />
               <strong>{c.user_name}</strong>
             </div>
-            <p className="ml-8 text-gray-700">{c.comment}</p>
+            <p className="ml-8 text-gray-500">{c.comment}</p>
           </div>
         ))}
 
