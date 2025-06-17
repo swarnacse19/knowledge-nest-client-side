@@ -40,7 +40,7 @@ const StudentSpotlight = () => {
         {spotlightStudents.map((student, idx) => (
           <div key={idx} className="px-4">
             <div
-            className="bg-purple-100 max-w-4xl shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
+            className="bg-base-300 max-w-4xl shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
           >
             <img
               src={student.image}
