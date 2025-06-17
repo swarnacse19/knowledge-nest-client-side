@@ -6,7 +6,7 @@ function Article({ article }) {
     <div className="card border w-96 mx-auto">
       <div className="card-body">
         <h2 className="card-title">{article.title}</h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-500">
           By {article.author_name} <br />{" "}
           {new Date(article.date).toLocaleDateString()}
         </p>

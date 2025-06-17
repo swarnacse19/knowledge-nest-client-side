@@ -72,7 +72,6 @@ This project serves as a modern and responsive MERN stack platform where student
 - `motion` 
 - `react-icons`
 - `lottie-react`
-- `react-helmet-async`
 - `react-tooltip`
 - `sweetalert2`
 - `tailwindcss`

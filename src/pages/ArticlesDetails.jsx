@@ -98,8 +98,8 @@ const ArticlesDetails = () => {
         ></div>
       </div>
 
-      <div className="text-sm text-gray-500 mb-4 flex gap-3">
-        <span className="flex items-center gap-3"><FaFolder size={20} color="orange"/> Category: {article.category}</span> |
+      <div className="text-sm text-gray-500 mb-4 flex flex-col md:flex-row gap-3">
+        <span className="flex items-center gap-3"><FaFolder size={20} color="orange"/> Category: <span className="font-medium text-gray-600">{article.category}</span></span>
         <span className="flex items-center gap-3"> <IoMdPricetags size={20} color="orange"/> Tags: <span className="text-blue-700 font-medium">{article.tags?.join(", ")}</span></span>
       </div>
 

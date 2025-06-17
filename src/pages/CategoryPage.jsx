@@ -25,7 +25,7 @@ const CategoryPage = () => {
 
   return (
     <div className="max-w-11/12 mx-auto my-10">
-      <h2 className="text-2xl font-bold mb-6">Articles in “{name}”</h2>
+      <h2 className="text-2xl font-bold mb-6">Articles in "{name}"</h2>
       {loading ? (
         <Loading />
       ) : articles.length === 0 ? (
