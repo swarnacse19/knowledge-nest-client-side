@@ -25,7 +25,7 @@ const spotlightStudents = [
 const StudentSpotlight = () => {
   const settings = {
     centerMode: true,
-    centerPadding: "160px",
+    centerPadding: "60px",
     slidesToShow: 1,
     infinite: true,
     arrows: false,
@@ -38,9 +38,9 @@ const StudentSpotlight = () => {
       <h2 className="text-3xl flex items-center gap-3 font-bold justify-center mb-8"><FaGraduationCap color="purple"/> Student Spotlight</h2>
       <Slider {...settings} className="gap-3">
         {spotlightStudents.map((student, idx) => (
-          <div key={idx} className="px-4">
+          <div key={idx} className="px-14">
             <div
-            className="bg-base-300 max-w-4xl shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
+            className="bg-base-300 max-w-5xl shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
           >
             <img
               src={student.image}
