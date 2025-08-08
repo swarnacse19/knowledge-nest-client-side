@@ -77,3 +77,36 @@ This project serves as a modern and responsive MERN stack platform where student
 - `tailwindcss`
 - `react-slick`
 
+
+# 🚀 Getting Started
+
+To get the project up and running on your local machine, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/swarnacse19/knowledge-nest-client-side.git
+    ```
+
+2.  **Navigate to the project directory:**
+    ```bash
+    cd knowledge-nest-client-side
+    ```
+
+3.  **Install the dependencies:**
+    ```bash
+    npm install
+    ```
+
+4.  **Create a `.env` file:**
+    In the root of the project, create a file named `.env` and add your Firebase, Stripe, and any other necessary API keys.
+    ```env
+    VITE_API_KEY=your_firebase_api_key
+    ```
+
+5.  **Run the project:**
+    Start the development server with this command:
+    ```bash
+    npm run dev
+    ```
+
+The project will now be live at `http://localhost:5173`.
