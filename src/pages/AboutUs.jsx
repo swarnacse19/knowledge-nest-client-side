@@ -7,7 +7,7 @@ import { TbWorld } from 'react-icons/tb';
 
 const AboutUs = () => {
   return (
-    <div className="max-w-11/12 mx-auto rounded-2xl bg-gray-50 text-black px-6 py-12 md:px-20 my-5">
+    <div className="mx-auto rounded-2xl bg-gray-50 text-black px-14 py-12 md:px-20 my-20">
       <div className="space-y-10">
 
         <section>

@@ -21,9 +21,9 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="my-10 max-w-11/12 mx-auto">
-      <h2 className="text-2xl font-bold mb-5 text-center">Categories</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 justify-center">
+    <div className="my-20 px-14 mx-auto">
+      <h2 className="text-3xl font-bold mb-10 text-center">Categories</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center">
         {categories.map((cat, index) => (
           <Link
             to={`/category/${cat}`}

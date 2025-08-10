@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { GiSpellBook } from "react-icons/gi";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
@@ -32,7 +32,7 @@ function Navbar({ darkMode, setDarkMode }) {
         role="button"
         className="btn btn-ghost btn-circle avatar"
       >
-        <div className="">
+        <div>
           <img
             data-tooltip-id="user-tooltip"
             data-tooltip-content={user?.displayName}
@@ -49,7 +49,7 @@ function Navbar({ darkMode, setDarkMode }) {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow text-black"
+        className={`menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow text-black`}
       >
         <li>
           <Link to="/myArticles">My Articles</Link>
@@ -71,14 +71,21 @@ function Navbar({ darkMode, setDarkMode }) {
 
   return (
     <div>
-      <div className="navbar px-14 py-5 shadow-md flex justify-between items-center">
+      {/* Navbar */}
+      <div
+        className={`navbar px-14 py-5 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+          darkMode ? "bg-black text-white" : "bg-white text-black"
+        }`}
+      >
+        {/* Logo */}
         <div className="flex items-center gap-2">
-          <GiSpellBook size={40} color="" />
+          <GiSpellBook size={40} />
           <h2 className="hidden md:flex text-2xl font-semibold">
             KnowledgeNest
           </h2>
         </div>
 
+        {/* Large screen menu */}
         <div className="hidden lg:flex items-center gap-6">
           <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium">
             {links}
@@ -88,11 +95,7 @@ function Navbar({ darkMode, setDarkMode }) {
             onClick={() => setDarkMode(!darkMode)}
             className="text-xl"
           >
-            {darkMode ? (
-              <FaSun className="" />
-            ) : (
-              <FaMoon className="" />
-            )}
+            {darkMode ? <FaSun /> : <FaMoon />}
           </button>
 
           {user ? (
@@ -107,9 +110,10 @@ function Navbar({ darkMode, setDarkMode }) {
           )}
         </div>
 
+        {/* Mobile menu */}
         <div className="lg:hidden">
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn text-black btn-ghost">
+            <label tabIndex={0} className="btn btn-ghost">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -126,7 +130,9 @@ function Navbar({ darkMode, setDarkMode }) {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52 text-black text-[16px]"
+              className={`menu menu-sm dropdown-content mt-3 p-3 shadow rounded-box w-52 text-[16px] ${
+                darkMode ? "bg-black text-white" : "bg-base-100 text-black"
+              }`}
             >
               {links}
               <li>

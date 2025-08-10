@@ -16,7 +16,7 @@ const FeaturedArticles = () => {
 
         const sorted = data
           .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .slice(0, 6);
+          .slice(0, 12);
 
         setArticles(sorted);
       } catch (err) {
@@ -30,12 +30,12 @@ const FeaturedArticles = () => {
   }, []);
 
   return (
-    <div className="my-10 px-14 mx-auto">
-      <h2 className="text-2xl font-bold mb-5 text-center">Featured Articles</h2>
+    <div className="my-20 px-14 mx-auto">
+      <h2 className="text-3xl font-bold mb-10 text-center">Featured Articles</h2>
       {loading ? (
         <Loading></Loading>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {articles.map((article) => (
             <Article key={article._id} article={article} />
           ))}
