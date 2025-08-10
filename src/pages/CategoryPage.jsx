@@ -24,14 +24,14 @@ const CategoryPage = () => {
   }, [name]);
 
   return (
-    <div className="max-w-11/12 mx-auto my-10">
+    <div className="px-14 mx-auto my-26">
       <h2 className="text-2xl font-bold mb-6">Articles in "{name}"</h2>
       {loading ? (
         <Loading />
       ) : articles.length === 0 ? (
         <p>No articles found in this category.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {articles.map((article) => (
             <Article key={article._id} article={article} />
           ))}

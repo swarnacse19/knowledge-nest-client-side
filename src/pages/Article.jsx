@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 function Article({ article }) {
   return (
-    <div className="card border w-86 mx-auto">
+    <div className="card border border-gray-300 w-86 mx-auto">
       <div className="card-body">
         <h2 className="card-title">{article.title}</h2>
         <p className="text-sm text-gray-500">

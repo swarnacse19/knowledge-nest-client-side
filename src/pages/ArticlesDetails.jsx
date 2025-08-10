@@ -78,7 +78,7 @@ const ArticlesDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6">
+    <div className="mx-auto px-14 py-6 my-24">
       <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
 
       <div className="flex items-center gap-3 text-sm mb-4">

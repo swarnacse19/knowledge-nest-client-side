@@ -44,7 +44,7 @@ const AllArticles = () => {
 
   return (
     <div className="px-14 mx-auto py-5 my-20">
-      <label className="font-semibold">
+      <label className="font-semibold text-xl">
         Filter by Category:
         <select
           className="border font-normal ml-3"
@@ -65,7 +65,7 @@ const AllArticles = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-5">
           {articles.map((article) => (
             <Article key={article._id} article={article} />
           ))}

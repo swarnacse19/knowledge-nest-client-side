@@ -22,17 +22,23 @@ const topContributors = [
     articles: 5,
     comments: 12,
   },
+  {
+    name: "Shraboni Saha",
+    image: "https://i.ibb.co.com/PG2t59xS/student3.webp",
+    articles: 5,
+    comments: 12,
+  },
 ];
 
 const TopContributors = () => {
   return (
-    <div className="mt-16 mb-20 max-w-11/12 mx-auto">
-      <h2 className="text-3xl flex items-center justify-center gap-3 font-bold mb-8"><FaStarHalfAlt color="purple"/> Top Contributors</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="my-20 px-14 mx-auto">
+      <h2 className="text-3xl flex items-center justify-center gap-3 font-bold mb-8"><FaStarHalfAlt color=""/> Top Contributors</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {topContributors.map((user, index) => (
           <div
             key={index}
-            className="bg-base-200 shadow-md rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
+            className="bg-white shadow-md rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
           >
             <img
               src={user.image}
