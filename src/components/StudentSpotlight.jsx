@@ -18,38 +18,69 @@ const spotlightStudents = [
   {
     name: "Sumaiya Shrabon",
     image: "https://i.ibb.co/Pz4MMyKD/student3.webp",
-    description: "Enjoys exploring UI/UX design and writing clean frontend code.",
+    description:
+      "Enjoys exploring UI/UX design and writing clean frontend code.",
+  },
+  {
+    name: "Rafia Ahmed",
+    image: "https://i.ibb.co.com/g2hWK7s/law4.jpg",
+    description: "Machine Learning enthusiast and problem solver.",
+  },
+  {
+    name: "Nadia Hasan",
+    image: "https://i.ibb.co.com/yFvQHpZ3/law7.jpg",
+    description: "Creative thinker and passionate about web development.",
   },
 ];
 
 const StudentSpotlight = () => {
   const settings = {
-    centerMode: true,
-    centerPadding: "60px",
-    slidesToShow: 1,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     infinite: true,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000,
-    dots: false,
+    speed: 5000,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
+
   return (
-    <div className="my-20 px-14 mx-auto">
-      <h2 className="text-3xl flex items-center gap-3 font-bold justify-center mb-8"><FaGraduationCap color=""/> Student Spotlight</h2>
-      <Slider {...settings} className="gap-3">
+    <div className="my-28 px-6 md:px-14 mx-auto">
+      <h2 className="text-3xl flex items-center gap-3 font-bold justify-center mb-12">
+        <FaGraduationCap /> Student Spotlight
+      </h2>
+      <Slider {...settings}>
         {spotlightStudents.map((student, idx) => (
-          <div key={idx} className="px-14">
-            <div
-            className="bg-base-300 shadow-md rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl"
-          >
-            <img
-              src={student.image}
-              alt={student.name}
-              className="w-24 mx-auto h-24 rounded-full mb-4 border-4 border-purple-500"
-            />
-            <h3 className="text-xl font-semibold text-black">{student.name}</h3>
-            <p className="text-gray-600 mt-2">{student.description}</p>
-          </div>
+          <div key={idx} className="px-3">
+            <div className="shadow-md border border-gray-400 rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl h-64">
+              <img
+                src={student.image}
+                alt={student.name}
+                className="w-24 h-24 rounded-full mb-4 border-4 object-cover"
+              />
+              <h3 className="text-lg font-semibold">
+                {student.name}
+              </h3>
+              <p className="mt-2 text-sm">
+                {student.description}
+              </p>
+            </div>
           </div>
         ))}
       </Slider>

@@ -158,7 +158,7 @@ function Navbar({ darkMode, setDarkMode }) {
           </div>
         </div>
       </div>
-
+      <div className="h-[82px]"></div>
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );

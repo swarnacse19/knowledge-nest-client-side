@@ -38,16 +38,16 @@ const TopContributors = () => {
         {topContributors.map((user, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
+            className="shadow-md rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
           >
             <img
               src={user.image}
               alt={user.name}
               className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-700"
             />
-            <h3 className="text-xl font-semibold text-black">{user.name}</h3>
+            <h3 className="text-xl mb-3 font-semibold">{user.name}</h3>
             <p className="text-gray-600 flex justify-center items-center  gap-3"><LuNotebookPen size={20}/> Articles: {user.articles}</p>
-            <p className="text-gray-600 flex justify-center items-center gap-3"><LiaCommentDots size={24}/>  Comments: {user.comments}</p>
+            <p className="text-gray-500 flex justify-center items-center gap-3"><LiaCommentDots size={24}/>  Comments: {user.comments}</p>
           </div>
         ))}
       </div>
