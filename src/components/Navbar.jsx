@@ -71,16 +71,16 @@ function Navbar({ darkMode, setDarkMode }) {
 
   return (
     <div>
-      <div className="navbar bg-base-100 px-6 py-4 shadow-md flex justify-between items-center">
+      <div className="navbar px-14 py-5 shadow-md flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <GiSpellBook size={40} color="black" />
-          <h2 className="hidden md:flex text-2xl font-semibold text-black">
+          <GiSpellBook size={40} color="" />
+          <h2 className="hidden md:flex text-2xl font-semibold">
             KnowledgeNest
           </h2>
         </div>
 
         <div className="hidden lg:flex items-center gap-6">
-          <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium text-black">
+          <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium">
             {links}
           </ul>
 
@@ -89,9 +89,9 @@ function Navbar({ darkMode, setDarkMode }) {
             className="text-xl"
           >
             {darkMode ? (
-              <FaSun className="text-black" />
+              <FaSun className="" />
             ) : (
-              <FaMoon className="text-black" />
+              <FaMoon className="" />
             )}
           </button>
 

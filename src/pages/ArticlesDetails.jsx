@@ -108,7 +108,7 @@ const ArticlesDetails = () => {
           onClick={() => handleLike(article._id)}
           disabled={!user || hasLiked || isLiking}
           className={`px-3 py-1 rounded ${
-            hasLiked ? "bg-green-500" : "bg-blue-500 text-white"
+            hasLiked ? "bg-green-700" : "bg-black text-white"
           }`}
         >
           <div className="flex items-center gap-2"><AiFillLike size={20}/> Like ({Array.isArray(likes) ? likes.length : 0})</div>
