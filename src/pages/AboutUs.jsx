@@ -7,7 +7,7 @@ import { TbWorld } from 'react-icons/tb';
 
 const AboutUs = () => {
   return (
-    <div className="max-w-11/12 mx-auto rounded-2xl bg-purple-100 text-black px-6 py-12 md:px-20 my-5">
+    <div className="max-w-11/12 mx-auto rounded-2xl bg-gray-50 text-black px-6 py-12 md:px-20 my-5">
       <div className="space-y-10">
 
         <section>
@@ -27,11 +27,11 @@ const AboutUs = () => {
         <section>
           <h2 className="text-2xl font-semibold mb-2">What We Offer</h2>
           <ul className=" text-gray-600 text-[16px] space-y-2">
-            <li className='flex gap-2 items-center'><MdLibraryBooks color='indigo' size={24}/> Article Posting - Share your ideas, research, or reflections.</li>
-            <li className='flex gap-2 items-center'><FaRegCommentDots color='indigo' size={24}/> Commenting - Engage in thoughtful discussions.</li>
-            <li className='flex gap-2 items-center'><SiGnuprivacyguard color='indigo' size={24}/> Private Dashboard - Manage your own content easily.</li>
-            <li className='flex gap-2 items-center'><TbWorld color='indigo' size={24}/> Browse All Articles - Discover what others are sharing.</li>
-            <li className='flex gap-2 items-center'><FaMobileScreen color='indigo' size={24}/> Fully Responsive - Use it anywhere, on any device.</li>
+            <li className='flex gap-2 items-center'><MdLibraryBooks color='black' size={24}/> Article Posting - Share your ideas, research, or reflections.</li>
+            <li className='flex gap-2 items-center'><FaRegCommentDots color='black' size={24}/> Commenting - Engage in thoughtful discussions.</li>
+            <li className='flex gap-2 items-center'><SiGnuprivacyguard color='black' size={24}/> Private Dashboard - Manage your own content easily.</li>
+            <li className='flex gap-2 items-center'><TbWorld color='black' size={24}/> Browse All Articles - Discover what others are sharing.</li>
+            <li className='flex gap-2 items-center'><FaMobileScreen color='black' size={24}/> Fully Responsive - Use it anywhere, on any device.</li>
           </ul>
         </section>
       </div>

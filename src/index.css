@@ -7,8 +7,8 @@
   font-family: "Poppins", sans-serif;
 }
 a.active {
-  text-decoration: underline;
-  color: purple;
+  text-decoration: underline green;
+  color: green;
   font-weight: 600;
 }
 

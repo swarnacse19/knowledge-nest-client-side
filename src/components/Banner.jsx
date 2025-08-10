@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 function Banner() {
   return (
     <div
-      className="hero h-[520px]"
+      className="hero h-[570px]"
       style={{
         backgroundImage: `linear-gradient(
         to right,
