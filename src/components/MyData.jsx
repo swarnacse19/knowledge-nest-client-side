@@ -16,10 +16,10 @@ function MyData({ post, openModal, handleDelete }) {
       <td className="text-blue-600">{tags.map((tag, index) => <p key={index}>#{tag}</p>)}</td>
       <td>{date}</td>
       <td className="flex gap-2">
-        <button className="btn bg-white text-green-500" onClick={() => openModal(post)}>
+        <button className="px-3 py-2 border border-gray-400 text-green-500" onClick={() => openModal(post)}>
           Update
         </button>
-        <button onClick={() => handleDelete(_id)} className="btn bg-white text-red-500">
+        <button onClick={() => handleDelete(_id)} className="px-3 py-2 border border-gray-400 text-red-500">
           Delete
         </button>
       </td>

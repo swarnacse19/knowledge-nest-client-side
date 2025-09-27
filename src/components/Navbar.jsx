@@ -70,11 +70,11 @@ function Navbar({ darkMode, setDarkMode }) {
   );
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       {/* Navbar */}
       <div
-        className={`navbar px-14 py-5 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          darkMode ? "bg-black text-white" : "bg-white text-black"
+        className={`navbar px-4 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+          darkMode ? "bg-black text-white" : "bg-[#f5d4b5] text-[#773d30]"
         }`}
       >
         {/* Logo */}
@@ -87,7 +87,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
         {/* Large screen menu */}
         <div className="hidden lg:flex items-center gap-6">
-          <ul className="menu menu-horizontal px-1 gap-5 text-[14px] font-medium">
+          <ul className="menu menu-horizontal px-1 gap-5 text-[16px] font-medium">
             {links}
           </ul>
 
@@ -158,7 +158,7 @@ function Navbar({ darkMode, setDarkMode }) {
           </div>
         </div>
       </div>
-      <div className="h-[82px]"></div>
+      <div className="h-[62px]"></div>
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );

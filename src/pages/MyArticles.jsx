@@ -126,7 +126,7 @@ function MyArticles() {
   };
 
   return (
-    <div className="my-28  min-h-screen">
+    <div className="my-20  min-h-screen">
       {loading && <Loading></Loading>}
       {myArticle.length === 0 ? (
         <div className="max-w-5xl mx-auto bg-gray-100 shadow-md rounded-xl py-24 text-center text-black">
@@ -138,7 +138,7 @@ function MyArticles() {
           </p>
         </div>
       ) : (
-        <div className="my-28 overflow-x-auto px-14 mx-auto">
+        <div className="my-20 overflow-x-auto px-14 mx-auto">
           <table className="table table-md">
             <thead>
               <tr className="bg-black text-white">
@@ -268,7 +268,7 @@ function MyArticles() {
               </div>
 
               <div className="text-center pt-4">
-                <button type="submit" className="btn btn-primary w-full">
+                <button type="submit" className="btn bg-black text-white w-full">
                   Update
                 </button>
               </div>
