@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white text-[14px] px-16 py-14">
+    <footer className="bg-[#884f3d] text-white text-[14px] px-16 py-14">
       <div className="max-w-7xl mx-auto flex flex-col gap-8 md:flex-row justify-between">
         
         <div>
