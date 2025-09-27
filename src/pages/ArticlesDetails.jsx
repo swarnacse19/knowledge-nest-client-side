@@ -78,7 +78,7 @@ const ArticlesDetails = () => {
   };
 
   return (
-    <div className="mx-auto px-14 py-6 my-24">
+    <div className="mx-auto px-4 lg:px-14 py-6 my-24">
       <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
 
       <div className="flex items-center gap-3 text-sm mb-4">
@@ -108,7 +108,7 @@ const ArticlesDetails = () => {
           onClick={() => handleLike(article._id)}
           disabled={!user || hasLiked || isLiking}
           className={`px-3 py-1 rounded ${
-            hasLiked ? "bg-green-700" : "bg-black text-white"
+            hasLiked ? "bg-[#773d30] text-white" : "bg-black text-white"
           }`}
         >
           <div className="flex items-center gap-2"><AiFillLike size={20}/> Like ({Array.isArray(likes) ? likes.length : 0})</div>
@@ -142,17 +142,13 @@ const ArticlesDetails = () => {
               onChange={(e) => setNewComment(e.target.value)}
               className="w-full border p-2 rounded mb-2"
               rows="3"
-              placeholder={
-                isOwner
-                  ? "Kindly avoid self-commenting on your posts."
-                  : "Write a comment..."
-              }
+              placeholder="Write a comment..."
               required
             />
             <button
               type="submit"
-              disabled={isCommenting || isOwner}
-              className="bg-green-600 text-white px-4 py-1 rounded"
+              disabled={isCommenting}
+              className="bg-[#773d30] text-white px-4 py-2 rounded"
             >
               {isCommenting ? "Posting..." : "Post Comment"}
             </button>

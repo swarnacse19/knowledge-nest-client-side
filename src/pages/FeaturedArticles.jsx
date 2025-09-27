@@ -30,8 +30,8 @@ const FeaturedArticles = () => {
   }, []);
 
   return (
-    <div className="my-20 px-14 mx-auto">
-      <h2 className="text-3xl font-bold mb-10 text-center">Featured Articles</h2>
+    <div className="my-20 px-4 lg:px-14 mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-[#8d493a]">Featured Articles</h2>
       {loading ? (
         <Loading></Loading>
       ) : (

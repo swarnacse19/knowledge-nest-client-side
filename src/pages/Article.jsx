@@ -11,7 +11,7 @@ function Article({ article }) {
           {new Date(article.date).toLocaleDateString()}
         </p>
         <div className="card-actions justify-end">
-          <Link to={`/article/${article._id}`} className="btn bg-black text-white">
+          <Link to={`/article/${article._id}`} className="btn bg-[#773d30] text-white">
             Read More
           </Link>
         </div>

@@ -7,8 +7,8 @@ import { Link } from 'react-router';
 
 function Footer() {
   return (
-    <footer className="bg-[#884f3d] text-white text-[14px] px-16 py-14">
-      <div className="max-w-7xl mx-auto flex flex-col gap-8 md:flex-row justify-between">
+    <footer className="bg-[#884f3d] text-white text-[14px] mx-auto px-4 lg:px-14 py-16">
+      <div className="flex flex-col gap-8 md:flex-row justify-between">
         
         <div>
           <div className='flex items-center gap-2 mb-4'>

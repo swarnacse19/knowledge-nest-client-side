@@ -70,11 +70,11 @@ function Navbar({ darkMode, setDarkMode }) {
   );
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="mx-auto">
       {/* Navbar */}
       <div
-        className={`navbar px-4 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          darkMode ? "bg-black text-white" : "bg-[#f5d4b5] text-[#773d30]"
+        className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+          darkMode ? "bg-black text-white" : "bg-[#fed2a8] text-[#773d30]"
         }`}
       >
         {/* Logo */}
