@@ -74,7 +74,7 @@ function Navbar({ darkMode, setDarkMode }) {
       {/* Navbar */}
       <div
         className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          darkMode ? "bg-black text-white" : "bg-[#fed2a8] text-[#773d30]"
+          darkMode ? "bg-black text-white" : "bg-[#fea38c] text-[#773d30]"
         }`}
       >
         {/* Logo */}

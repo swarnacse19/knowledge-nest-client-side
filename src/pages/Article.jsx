@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 function Article({ article }) {
   return (
-    <div className="flex bg-[#faa896] border border-gray-200 rounded-lg shadow-md overflow-hidden max-w-2xl mx-auto">
+    <div className="flex bg-[#F4B7A8] border border-gray-200 rounded-lg shadow-md overflow-hidden max-w-2xl mx-auto">
       {/* Left Side - Thumbnail */}
       <div className="w-1/3">
         <img

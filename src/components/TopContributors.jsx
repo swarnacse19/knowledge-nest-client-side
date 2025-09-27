@@ -32,13 +32,13 @@ const topContributors = [
 
 const TopContributors = () => {
   return (
-    <div className="my-20 px-14 mx-auto">
-      <h2 className="text-3xl flex items-center justify-center gap-3 font-bold mb-8"><FaStarHalfAlt color=""/> Top Contributors</h2>
+    <div className="my-28 px-4 md:px-14 mx-auto">
+      <h2 className="text-3xl md:text-4xl flex items-center justify-center gap-3 font-bold mb-14 text-[#773d30]"><FaStarHalfAlt color=""/> Top Contributors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {topContributors.map((user, index) => (
           <div
             key={index}
-            className="shadow-md rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
+            className="shadow-md bg-[#F4B7A8] rounded-2xl p-6 text-center transition hover:scale-105 duration-300"
           >
             <img
               src={user.image}
@@ -47,7 +47,7 @@ const TopContributors = () => {
             />
             <h3 className="text-xl mb-3 font-semibold">{user.name}</h3>
             <p className="text-gray-600 flex justify-center items-center  gap-3"><LuNotebookPen size={20}/> Articles: {user.articles}</p>
-            <p className="text-gray-500 flex justify-center items-center gap-3"><LiaCommentDots size={24}/>  Comments: {user.comments}</p>
+            <p className="text-gray-600 flex justify-center items-center gap-3"><LiaCommentDots size={24}/>  Comments: {user.comments}</p>
           </div>
         ))}
       </div>

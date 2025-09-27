@@ -61,14 +61,14 @@ const StudentSpotlight = () => {
   };
 
   return (
-    <div className="my-28 px-6 md:px-14 mx-auto">
-      <h2 className="text-3xl flex items-center gap-3 font-bold justify-center mb-12">
+    <div className="my-28 px-4 md:px-14 mx-auto">
+      <h2 className="text-3xl md:text-4xl flex items-center gap-3 font-bold justify-center mb-12 text-[#773d30]">
         <FaGraduationCap /> Student Spotlight
       </h2>
       <Slider {...settings}>
         {spotlightStudents.map((student, idx) => (
           <div key={idx} className="px-3">
-            <div className="shadow-md border border-gray-400 rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl h-64">
+            <div className="shadow-md border bg-[#F4B7A8] border-gray-400 rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl h-64">
               <img
                 src={student.image}
                 alt={student.name}
