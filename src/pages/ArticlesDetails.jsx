@@ -78,86 +78,115 @@ const ArticlesDetails = () => {
   };
 
   return (
-    <div className="mx-auto px-4 lg:px-14 py-6 my-24">
-      <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
+    <div className="mx-auto px-4 lg:px-14 py-6 my-24 flex flex-col lg:flex-row gap-10">
+      {/* Left Side - Article Info */}
+      <div className="lg:w-2/3">
+        <h1 className="text-3xl font-bold mb-2">{article.title}</h1>
 
-      <div className="flex items-center gap-3 text-sm mb-4">
-        <img
-          src={article.author_photo}
-          alt="author"
-          className="w-8 h-8 rounded-full border"
-        />
-        <span>{article.author_name}</span> <br /> 
-        <span> {new Date(article.date).toLocaleDateString()}</span>
-      </div>
-
-      <div className="mb-4">
-        <div
-          className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-        ></div>
-      </div>
-
-      <div className="text-sm text-gray-500 mb-4 flex flex-col md:flex-row gap-3">
-        <span className="flex items-center gap-3"><FaFolder size={20} color="orange"/> Category: <span className="font-medium text-gray-600">{article.category}</span></span>
-        <span className="flex items-center gap-3"> <IoMdPricetags size={20} color="orange"/> Tags: <span className="text-blue-700 font-medium">{article.tags?.join(", ")}</span></span>
-      </div>
-
-      <div className="mb-6 flex items-center gap-4">
-        <button
-          onClick={() => handleLike(article._id)}
-          disabled={!user || hasLiked || isLiking}
-          className={`px-3 py-1 rounded ${
-            hasLiked ? "bg-[#773d30] text-white" : "bg-black text-white"
-          }`}
-        >
-          <div className="flex items-center gap-2"><AiFillLike size={20}/> Like ({Array.isArray(likes) ? likes.length : 0})</div>
-        </button>
-      </div>
-
-      <hr className="mb-6" />
-
-      <div>
-        <h2 className="text-xl flex items-center gap-3 font-semibold mb-2">
-          <LiaCommentDots size={24}/> Comments ({comments.length})
-        </h2>
-        {comments.map((c, i) => (
-          <div key={i} className="mb-4 border-b pb-2">
-            <div className="flex items-center gap-2 mb-1">
-              <img
-                src={c.user_photo}
-                className="w-6 h-6 border rounded-full"
-                alt="user"
-              />
-              <strong>{c.user_name}</strong>
-            </div>
-            <p className="ml-8 text-gray-500">{c.comment}</p>
+        <div className="flex items-center gap-3 text-sm mb-4">
+          <img
+            src={article.author_photo}
+            alt="author"
+            className="w-8 h-8 rounded-full border"
+          />
+          <div>
+            <p className="font-medium">{article.author_name}</p>
+            <p className="text-gray-500">
+              {new Date(article.date).toLocaleDateString()}
+            </p>
           </div>
-        ))}
+        </div>
 
-        {user ? (
-          <form onSubmit={handleCommentSubmit} className="mt-4">
-            <textarea
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="w-full border p-2 rounded mb-2"
-              rows="3"
-              placeholder="Write a comment..."
-              required
-            />
-            <button
-              type="submit"
-              disabled={isCommenting}
-              className="bg-[#773d30] text-white px-4 py-2 rounded"
-            >
-              {isCommenting ? "Posting..." : "Post Comment"}
-            </button>
-          </form>
-        ) : (
-          <p className="text-gray-600 mt-4 font-medium italic">
-            Login to comment or like this article.
-          </p>
-        )}
+        <div className="mb-4">
+          <div
+            className="prose max-w-none"
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          ></div>
+        </div>
+
+        <div className="text-sm text-gray-500 mb-4 flex flex-col md:flex-row gap-3">
+          <span className="flex items-center gap-3">
+            <FaFolder size={20} color="orange" /> Category:{" "}
+            <span className="font-medium text-gray-600">
+              {article.category}
+            </span>
+          </span>
+          <span className="flex items-center gap-3">
+            <IoMdPricetags size={20} color="orange" /> Tags:{" "}
+            <span className="text-blue-700 font-medium">
+              {article.tags?.join(", ")}
+            </span>
+          </span>
+        </div>
+
+        <div className="mb-6 flex items-center gap-4">
+          <button
+            onClick={() => handleLike(article._id)}
+            disabled={!user || hasLiked || isLiking}
+            className={`px-3 py-1 rounded ${
+              hasLiked ? "bg-[#773d30] text-white" : "bg-black text-white"
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <AiFillLike size={20} /> Like (
+              {Array.isArray(likes) ? likes.length : 0})
+            </div>
+          </button>
+        </div>
+
+        <hr className="mb-6" />
+
+        <div>
+          <h2 className="text-xl flex items-center gap-3 font-semibold mb-2">
+            <LiaCommentDots size={24} /> Comments ({comments.length})
+          </h2>
+          {comments.map((c, i) => (
+            <div key={i} className="mb-4 border-b pb-2">
+              <div className="flex items-center gap-2 mb-1">
+                <img
+                  src={c.user_photo}
+                  className="w-6 h-6 border rounded-full"
+                  alt="user"
+                />
+                <strong>{c.user_name}</strong>
+              </div>
+              <p className="ml-8 text-gray-500">{c.comment}</p>
+            </div>
+          ))}
+
+          {user ? (
+            <form onSubmit={handleCommentSubmit} className="mt-4">
+              <textarea
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                className="w-full border p-2 rounded mb-2"
+                rows="3"
+                placeholder="Write a comment..."
+                required
+              />
+              <button
+                type="submit"
+                disabled={isCommenting}
+                className="bg-[#773d30] text-white px-4 py-2 rounded"
+              >
+                {isCommenting ? "Posting..." : "Post Comment"}
+              </button>
+            </form>
+          ) : (
+            <p className="text-gray-600 mt-4 font-medium italic">
+              Login to comment or like this article.
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* Right Side - Article Thumbnail */}
+      <div className="lg:w-1/3 flex-shrink-0">
+        <img
+          src={article.thumbnail}
+          alt={article.title}
+          className="w-full h-auto rounded-lg shadow-md object-cover"
+        />
       </div>
     </div>
   );
