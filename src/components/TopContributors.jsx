@@ -32,7 +32,7 @@ const topContributors = [
 
 const TopContributors = () => {
   return (
-    <div className="my-28 px-4 md:px-14 mx-auto">
+    <div className="my-28 px-4 md:px-14 mx-auto text-black">
       <h2 className="text-3xl md:text-4xl flex items-center justify-center gap-3 font-bold mb-14 text-[#773d30]"><FaStarHalfAlt color=""/> Top Contributors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {topContributors.map((user, index) => (
@@ -43,7 +43,7 @@ const TopContributors = () => {
             <img
               src={user.image}
               alt={user.name}
-              className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-green-700"
+              className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-black"
             />
             <h3 className="text-xl mb-3 font-semibold">{user.name}</h3>
             <p className="text-gray-600 flex justify-center items-center  gap-3"><LuNotebookPen size={20}/> Articles: {user.articles}</p>

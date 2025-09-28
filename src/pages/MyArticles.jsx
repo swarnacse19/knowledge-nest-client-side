@@ -126,7 +126,7 @@ function MyArticles() {
   };
 
   return (
-    <div className="my-20  min-h-screen">
+    <div className="my-20 text-black min-h-screen">
       {loading && <Loading></Loading>}
       {myArticle.length === 0 ? (
         <div className="max-w-5xl mx-auto bg-gray-100 shadow-md rounded-xl py-24 text-center text-black">

@@ -43,7 +43,7 @@ const AllArticles = () => {
   }, [category]);
 
   return (
-    <div className="px-14 mx-auto py-5 my-20">
+    <div className="px-14 mx-auto py-5 my-20 text-black">
       <label className="font-semibold text-xl">
         Filter by Category:
         <select

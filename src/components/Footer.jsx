@@ -5,9 +5,11 @@ import { IoLogoFacebook } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
 import { Link } from 'react-router';
 
-function Footer() {
+function Footer({darkMode, setDarkMode}) {
   return (
-    <footer className="bg-[#fea38c] text-[14px] mx-auto px-4 lg:px-14 py-16 text-[#773d30]">
+    <footer className={`text-[14px] mx-auto px-4 lg:px-14 py-16 ${
+          darkMode ? "bg-black text-white" : "bg-[#fea38c] text-[#773d30]"
+        }`}>
       <div className="flex flex-col gap-8 md:flex-row justify-between">
         
         <div>

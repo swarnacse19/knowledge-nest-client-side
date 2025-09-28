@@ -61,7 +61,7 @@ const StudentSpotlight = () => {
   };
 
   return (
-    <div className="my-28 px-4 md:px-14 mx-auto">
+    <div className="my-28 px-4 md:px-14 mx-auto text-black">
       <h2 className="text-3xl md:text-4xl flex items-center gap-3 font-bold justify-center mb-12 text-[#773d30]">
         <FaGraduationCap /> Student Spotlight
       </h2>
@@ -72,7 +72,7 @@ const StudentSpotlight = () => {
               <img
                 src={student.image}
                 alt={student.name}
-                className="w-24 h-24 rounded-full mb-4 border-4 object-cover"
+                className="w-24 h-24 rounded-full mb-4 border-black border-4 object-cover"
               />
               <h3 className="text-lg font-semibold">
                 {student.name}
