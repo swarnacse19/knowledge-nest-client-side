@@ -10,7 +10,7 @@ export default function GoogleMapSection({
   const src = `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed`;
 
   return (
-    <section className="max-w-7xl text-[#773d30] px-4 md:px-14 mx-auto py-8">
+    <section className="max-w-7xl my-24 text-[#773d30] px-4 md:px-14 mx-auto py-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left column - text */}
         <div className="space-y-4">
