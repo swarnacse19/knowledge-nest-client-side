@@ -54,7 +54,7 @@ function Banner() {
               <motion.img
                 src={img1}
                 alt="First"
-                className="ml-8 rounded-lg h-44 shadow-lg"
+                className="ml-8 rounded-lg min-h-28 shadow-lg"
                 animate={{ x: [0, 15, 0] }}
                 transition={{
                   duration: 4,

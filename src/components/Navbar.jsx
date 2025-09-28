@@ -60,7 +60,7 @@ function Navbar({ darkMode, setDarkMode }) {
         <li>
           <button
             onClick={handleLogOut}
-            className="btn btn-sm bg-black text-white"
+            className="btn btn-sm bg-[#773d30] text-white"
           >
             Logout
           </button>
@@ -103,7 +103,7 @@ function Navbar({ darkMode, setDarkMode }) {
           ) : (
             <Link
               to="/login"
-              className="btn bg-black text-white font-semibold"
+              className="px-7 py-2 bg-[#773d30] text-white text-sm rounded-md hover:bg-[#5c2f24]"
             >
               Login
             </Link>
@@ -149,7 +149,7 @@ function Navbar({ darkMode, setDarkMode }) {
               ) : (
                 <Link
                   to="/login"
-                  className="btn bg-black text-white font-semibold"
+                  className="px-7 py-2 bg-[#773d30] text-white text-sm rounded-md hover:bg-[#5c2f24] text-center"
                 >
                   Login
                 </Link>

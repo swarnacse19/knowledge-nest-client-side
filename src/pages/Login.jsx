@@ -54,7 +54,7 @@ function Login() {
   };
 
   return (
-    <div className="hero bg-base-200 my-5 min-h-screen text-black">
+    <div className="hero min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div>
           <Lottie
@@ -65,7 +65,7 @@ function Login() {
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <h2 className="text-2xl font-bold text-center text-black mb-5">
+            <h2 className="text-2xl font-bold text-center text-[#773d30] mb-5">
               Login Here
             </h2>
             <form onSubmit={handleLogin}>
@@ -94,7 +94,7 @@ function Login() {
 
               <button
                 type="submit"
-                className="btn bg-black text-white font-semibold text-xl mt-4 w-full"
+                className="btn bg-[#773d30] text-white font-semibold text-xl mt-4 w-full"
               >
                 Login
               </button>

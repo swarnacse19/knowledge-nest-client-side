@@ -58,7 +58,7 @@ function Register() {
     })
   }
   return (
-    <div className="hero bg-base-200 my-5 min-h-screen text-black">
+    <div className="hero min-h-screen text-black">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div>
           <Lottie
@@ -68,7 +68,7 @@ function Register() {
           ></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h2 className="mt-4 font-semibold text-2xl text-center">
+          <h2 className="mt-4 font-semibold text-[#773d30] text-2xl text-center">
             Register your account
           </h2>
           <form onSubmit={handleRegister} className="card-body">
@@ -115,7 +115,7 @@ function Register() {
 
               {error && <p className="text-red-600 text-xs">{error}</p>}
 
-              <button type="submit" className="btn btn-neutral mt-4">
+              <button type="submit" className="btn text-white bg-[#773d30] mt-4">
                 Register
               </button>
               <div className="flex items-center gap-2 my-4">

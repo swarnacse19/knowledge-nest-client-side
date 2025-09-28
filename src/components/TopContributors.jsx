@@ -54,32 +54,26 @@ const TopContributors = () => {
       </h2>
 
       {/* Slider container */}
-      <div className="relative h-[400px] overflow-hidden ">
-        <div
-          className="transition-transform duration-500"
-          style={{
-            transform: `translateY(-${currentIndex * 400}px)`,
-          }}
-        >
-          {topContributors.map((user, index) => (
+      <div className="carousel carousel-vertical w-full h-96">
+        {topContributors.map((user, index) => (
             <div
               key={index}
-              className={`${user.bg} flex flex-col md:flex-row items-center justify-center h-[400px] p-8`}
+              className={`${user.bg} carousel-item flex flex-col md:flex-row items-center justify-center px-14 md:px-20 h-full`}
             >
               {/* Left: image */}
               <div className="flex-shrink-0 md:w-1/2 flex justify-center">
                 <img
                   src={user.image}
                   alt={user.name}
-                  className="w-60 h-60 md:w-72 md:h-72 object-cover rounded-2xl shadow-lg border-4 border-white"
+                  className="w-28 h-28 md:w-60 md:h-60 object-cover rounded-2xl shadow-lg border-4 border-white"
                 />
               </div>
 
               {/* Right: info */}
               <div className="md:w-1/2 mt-6 md:mt-0 md:ml-10 text-center md:text-left">
                 <h3 className="text-3xl font-semibold mb-4">{user.name}</h3>
-                <p className="text-black mb-6 text-lg">{user.text}</p>
-                <p className="text-gray-900 flex items-center justify-center md:justify-start gap-2 mb-3">
+                <p className="text-black text-lg">{user.text}</p>
+                <p className="text-gray-900 flex items-center justify-center md:justify-start gap-2">
                   <LuNotebookPen size={22} />{" "}
                   <span className="font-medium">Articles:</span>{" "}
                   {user.articles}
@@ -92,15 +86,6 @@ const TopContributors = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Arrow button inside slider */}
-        <button
-          onClick={handleNext}
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 p-4 rounded-full bg-white text-black"
-        >
-          <FaArrowDown size={20} />
-        </button>
       </div>
     </section>
   );
