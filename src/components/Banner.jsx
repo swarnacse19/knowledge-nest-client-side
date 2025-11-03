@@ -19,7 +19,7 @@ function Banner() {
       {/* <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div> */}
 
       <div className="hero-content text-white px-4 max-w-7xl relative z-10">
-        <div className="flex justify-between items-center">
+        <div className="flex gap-7 justify-between items-center">
           <div className="">
             <motion.h1
               animate={{
@@ -42,7 +42,7 @@ function Banner() {
             </p>
             <Link
               to="/articles"
-              className="py-3 rounded-md px-8 md:px-12 bg-black text-white font-semibold hover:bg-[#773d30] transition-colors duration-300"
+              className="py-2 rounded-md px-3 md:py-3 md:px-12 bg-black text-white md:font-semibold hover:bg-[#773d30] transition-colors duration-300"
             >
               Explore Articles
             </Link>
@@ -54,7 +54,7 @@ function Banner() {
               <motion.img
                 src={img1}
                 alt="First"
-                className="ml-8 rounded-lg min-h-28 shadow-lg"
+                className="ml-8 rounded-lg min-h-22 shadow-lg"
                 animate={{ x: [0, 15, 0] }}
                 transition={{
                   duration: 4,

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 function Article({ article }) {
   return (
-    <div className="flex bg-[#F4B7A8] border border-gray-200 rounded-lg shadow-md overflow-hidden max-w-2xl mx-auto">
+    <div className="flex bg-[#f7e1da] border border-gray-200 rounded-lg shadow-md overflow-hidden max-w-2xl mx-auto">
       {/* Left Side - Thumbnail */}
       <div className="w-1/3">
         <img
@@ -37,7 +37,7 @@ function Article({ article }) {
         <div className="text-right">
           <Link
             to={`/article/${article._id}`}
-            className="inline-block px-4 py-2 bg-[#773d30] text-white text-sm rounded-md hover:bg-[#5c2f24]"
+            className="inline-block px-4 py-2 bg-[#b3a09a] text-black text-sm rounded-md hover:bg-[#958681]"
           >
             Read More
           </Link>

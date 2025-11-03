@@ -18,9 +18,9 @@ function Root() {
 
   return (
     <div className="transition-all min-h-screen">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Outlet darkMode={darkMode} setDarkMode={setDarkMode}/>
-      <Footer darkMode={darkMode} setDarkMode={setDarkMode}/>
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 }

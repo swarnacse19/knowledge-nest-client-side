@@ -4,9 +4,8 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import { toast, ToastContainer } from "react-toastify";
-import { FaMoon, FaSun } from "react-icons/fa";
 
-function Navbar({ darkMode, setDarkMode }) {
+function Navbar() {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -73,9 +72,7 @@ function Navbar({ darkMode, setDarkMode }) {
     <div className="mx-auto">
       {/* Navbar */}
       <div
-        className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          darkMode ? "bg-black text-white" : "bg-[#fea38c] text-[#773d30]"
-        }`}
+        className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-[#fea38c] text-[#773d30]`}
       >
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -90,13 +87,6 @@ function Navbar({ darkMode, setDarkMode }) {
           <ul className="menu menu-horizontal px-1 gap-5 text-[16px] font-medium">
             {links}
           </ul>
-
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="text-xl"
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
 
           {user ? (
             userDropdown
@@ -130,20 +120,9 @@ function Navbar({ darkMode, setDarkMode }) {
             </label>
             <ul
               tabIndex={0}
-              className={`menu menu-sm dropdown-content mt-3 p-3 shadow rounded-box w-52 text-[16px] ${
-                darkMode ? "bg-black text-white" : "bg-base-100 text-black"
-              }`}
+              className={`menu menu-sm dropdown-content mt-3 p-3 shadow rounded-box w-52 text-[16px] bg-base-100 text-black`}
             >
               {links}
-              <li>
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="flex items-center gap-2"
-                >
-                  {darkMode ? <FaSun /> : <FaMoon />}{" "}
-                  {darkMode ? "Light Mode" : "Dark Mode"}
-                </button>
-              </li>
               {user ? (
                 userDropdown
               ) : (

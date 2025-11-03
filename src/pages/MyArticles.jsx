@@ -141,7 +141,7 @@ function MyArticles() {
         <div className="my-20 overflow-x-auto px-14 mx-auto">
           <table className="table table-md">
             <thead>
-              <tr className="bg-black text-white">
+              <tr className="bg-[#773d30] text-white">
                 <th>Title</th>
                 <th>Category</th>
                 <th>Tags</th>

@@ -68,7 +68,7 @@ const StudentSpotlight = () => {
       <Slider {...settings}>
         {spotlightStudents.map((student, idx) => (
           <div key={idx} className="px-3">
-            <div className="shadow-md border bg-[#F4B7A8] border-gray-400 rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl h-64">
+            <div className="shadow-md border bg-[#f7e1da] border-gray-400 rounded-2xl p-6 flex flex-col items-center text-center transition hover:shadow-xl h-64">
               <img
                 src={student.image}
                 alt={student.name}
