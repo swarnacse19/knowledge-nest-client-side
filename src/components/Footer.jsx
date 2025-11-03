@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 
 function Footer() {
   return (
-    <footer className={`text-[14px] mx-auto px-4 lg:px-14 py-16 bg-[#fea38c] text-[#773d30]`}>
+    <footer className={`text-[14px] mx-auto px-4 lg:px-14 py-16 bg-[#fbcfc1] text-black`}>
       <div className="flex flex-col gap-8 md:flex-row justify-between">
         
         <div>

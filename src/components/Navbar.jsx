@@ -72,7 +72,7 @@ function Navbar() {
     <div className="mx-auto">
       {/* Navbar */}
       <div
-        className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-[#fea38c] text-[#773d30]`}
+        className={`navbar px-4 lg:px-14 py-3 shadow-md flex justify-between items-center fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-[#fcc5b4] text-[#773d30]`}
       >
         {/* Logo */}
         <div className="flex items-center gap-2">
